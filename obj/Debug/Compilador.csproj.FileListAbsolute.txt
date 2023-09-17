@@ -1,0 +1,11 @@
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\bin\Debug\Compilador.exe.config
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\bin\Debug\Compilador.exe
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\bin\Debug\Compilador.pdb
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.csproj.AssemblyReference.cache
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.csproj.SuggestedBindingRedirects.cache
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.frmPrincipal.resources
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.Properties.Resources.resources
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.csproj.GenerateResource.cache
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.csproj.CoreCompileInputs.cache
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.exe
+C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.pdb
