@@ -15,7 +15,7 @@ namespace Compilador.AnalisisLexico
         private int puntero = 0;
         private string estadoActual = "";
         private String caracterActual;
-        public string categoria = "";
+        public CategoriaGramatical categoria = "";
         private string lexema = "";
         private int posicionInicial = 0;
         private int posicionFinal = 0;
@@ -69,7 +69,7 @@ namespace Compilador.AnalisisLexico
             estadoActual = "q0";
             lexema = "";
             caracterActual = "";
-            categoria = "";
+            categoria= CategoriaGramatical.DEFECTO;
             continuarAnalisis = true;
         }
         public String DevolverSiguienteComponente()
@@ -540,7 +540,7 @@ namespace Compilador.AnalisisLexico
             posicionFinal = puntero - 1;
 
             // Construir una cadena que contenga la información
-            string informacion = $"categoria: {categoria}\n";
+            CategoriaGramatical informacion = $"categoria: {categoria}\n";
             informacion += $"Lexema: {lexema}\n";
             informacion += $"Numero linea: {numeroLineaActual}\n";
             informacion += $"Posicion final: {posicionFinal}";
