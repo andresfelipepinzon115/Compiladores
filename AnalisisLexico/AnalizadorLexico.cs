@@ -15,7 +15,7 @@ namespace Compilador.AnalisisLexico
         private int puntero = 0;
         private string estadoActual = "";
         private String caracterActual;
-        public CategoriaGramatical categoria = "";
+        public CategoriaGramatical categoria;
         private string lexema = "";
         private int posicionInicial = 0;
         private int posicionFinal = 0;

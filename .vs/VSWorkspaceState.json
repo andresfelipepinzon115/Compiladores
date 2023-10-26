@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AnalisisLexico",
+    "\\AnalisisSintatico"
   ],
-  "SelectedNode": "\\frmPrincipal.cs",
+  "SelectedNode": "\\AnalisisLexico\\CategoriaGramatical.cs",
   "PreviewInSolutionExplorer": false
 }

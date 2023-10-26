@@ -9,3 +9,10 @@ C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador
 C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.csproj.CoreCompileInputs.cache
 C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.exe
 C:\Users\andre\Desktop\8vo Semestre\Compiladores\Compilador\obj\Debug\Compilador.pdb
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.csproj.AssemblyReference.cache
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.frmPrincipal.resources
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.Properties.Resources.resources
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.csproj.GenerateResource.cache
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.csproj.CoreCompileInputs.cache
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.exe
+C:\Users\Helmer\source\repos\Compiladores\obj\Debug\Compilador.pdb
