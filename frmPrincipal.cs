@@ -28,6 +28,7 @@ namespace Compilador
             OutputTextBox.Text = translatedText;
         }
 
+        //TEXTO A
         private string TranslateText(string inputText)
         {
             string inputLanguage = GetSelectedLanguage(groupBox1);
@@ -36,14 +37,7 @@ namespace Compilador
 
             if (inputLanguage == "TextIn" && outputLanguage == "TextOut")
             {
-                using (StreamWriter textOut = new StreamWriter("TextOut.txt")) 
-                {
-                    AnalizadorLexico textoInstance = new AnalizadorLexico(textOut);
-                    textoInstance.ProcesarEstado0T();
-
-                    string resultado = textoInstance.GetResultado();
-                    return resultado;
-                }
+                return inputText;
             }
             else if (inputLanguage == "TextIn" && outputLanguage == "NumOut")
             {
@@ -122,7 +116,7 @@ namespace Compilador
                 }
             }
         }
-
+          
         private void label1_Click(object sender, EventArgs e)
         {
 
