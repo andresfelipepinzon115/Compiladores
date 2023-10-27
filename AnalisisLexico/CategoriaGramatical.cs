@@ -15,7 +15,7 @@ namespace Compilador.AnalisisLexico
         EsLetraO_TILDE, EsLetraU_TILDE,EsLetraU_DIERESIS, EsDiguito0, EsDiguito1, EsDiguito2, 
         EsDiguito3, EsDiguito4, EsDiguito5, EsDiguito6, EsDiguito7, EsDiguito8, EsDiguito9, EsComa, 
         EsPuntoYComa, EsPunto, EsDosPuntos, EsParentesisAbre, EsParentesisCierra, EsCorchetesAbre,
-        EsCorchetesCierra, EsLavesAbre, EsLlavesCierra, EsNumeral, EsPeso,EsUmpersand, EsArroba,
+        EsCorchetesCierra, EsLlavesAbre, EsLlavesCierra, EsNumeral, EsPeso,EsUmpersand, EsArroba,
         EsSuma, EsResta, EsMultiplicacion, EsDivision, EsModulo, EsAsignacion, EsBarraInversa,
         EsOr, EsComillaDoble, EsComillaSimple, EsPotencia, EsAdmiracionAbre, EsAdmiracionCierra,
         EsPreguntaAbre, EsPreguntaCierra, EsGionBajo, EsMayorQue, EsMenorQue, EsAGuionBajo, 

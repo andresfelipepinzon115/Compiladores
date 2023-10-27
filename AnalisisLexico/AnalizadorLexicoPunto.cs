@@ -762,6 +762,136 @@ namespace Compilador.AnalisisLexico
             continuarAnalisis = false;
 
         }
+        public void ProcesarEstado40()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q41";
+            }
+
+        }
+        public void ProcesarEstado41()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q42";
+            }
+            else
+            {
+                estadoActual = "q129";
+            }
+
+        }
+        public void ProcesarEstado42()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q43";
+            }
+            else
+            {
+                estadoActual = "q130";
+            }
+
+        }
+        public void ProcesarEstado43()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q44";
+            }
+            else
+            {
+                estadoActual = "q131";
+            }
+
+        }
+        public void ProcesarEstado44()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q45";
+            }
+            else
+            {
+                estadoActual = "q132";
+            }
+
+        }
+        public void ProcesarEstado45()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q46";
+            }
+            else
+            {
+                estadoActual = "q133";
+            }
+
+        }
+        public void ProcesarEstado46()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q47";
+            }
+            else
+            {
+                estadoActual = "q134";
+            }
+
+        }
+        public void ProcesarEstado47()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q48";
+            }
+            else
+            {
+                estadoActual = "q135";
+            }
+
+        }
+        public void ProcesarEstado48()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q49";
+            }
+            else
+            {
+                estadoActual = "q136";
+            }
+
+        }
+        public void ProcesarEstado49()
+        {
+            Concatenar();
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsNumeral;
+            continuarAnalisis = false;
+
+        }
         public void ProcesarEstado102()
         {
             DevolverPuntero();
@@ -937,7 +1067,62 @@ namespace Compilador.AnalisisLexico
             continuarAnalisis = false;
 
         }
+        public void ProcesarEstado129()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsPunto;
+            continuarAnalisis = false;
 
+        }
+        public void ProcesarEstado130()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDosPuntos;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado131()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsParentesisAbre;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado132()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsParentesisCierra;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado133()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsCorchetesAbre;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado134()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsCorchetesCierra;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado135()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLlaves;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado136()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDivision;
+            continuarAnalisis = false;
+
+        }
         public string GetResultado()
         {
             return resultado;
