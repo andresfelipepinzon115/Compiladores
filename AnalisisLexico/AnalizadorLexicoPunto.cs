@@ -244,6 +244,86 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado39();
                 }
+                else if ("q40".Equals(estadoActual))
+                {
+                    ProcesarEstado40();
+                }
+                else if ("q41".Equals(estadoActual))
+                {
+                    ProcesarEstado41();
+                }
+                else if ("q42".Equals(estadoActual))
+                {
+                    ProcesarEstado42();
+                }
+                else if ("q43".Equals(estadoActual))
+                {
+                    ProcesarEstado43();
+                }
+                else if ("q44".Equals(estadoActual))
+                {
+                    ProcesarEstado44();
+                }
+                else if ("q45".Equals(estadoActual))
+                {
+                    ProcesarEstado45();
+                }
+                else if ("q46".Equals(estadoActual))
+                {
+                    ProcesarEstado46();
+                }
+                else if ("q47".Equals(estadoActual))
+                {
+                    ProcesarEstado47();
+                }
+                else if ("q48".Equals(estadoActual))
+                {
+                    ProcesarEstado48();
+                }
+                else if ("q49".Equals(estadoActual))
+                {
+                    ProcesarEstado49();
+                }
+                else if ("q50".Equals(estadoActual))
+                {
+                    ProcesarEstado50();
+                }
+                else if ("q51".Equals(estadoActual))
+                {
+                    ProcesarEstado51();
+                }
+                else if ("q52".Equals(estadoActual))
+                {
+                    ProcesarEstado52();
+                }
+                else if ("q53".Equals(estadoActual))
+                {
+                    ProcesarEstado53();
+                }
+                else if ("q54".Equals(estadoActual))
+                {
+                    ProcesarEstado54();
+                }
+                else if ("q55".Equals(estadoActual))
+                {
+                    ProcesarEstado55();
+                }
+                else if ("q56".Equals(estadoActual))
+                {
+                    ProcesarEstado56();
+                }
+                else if ("q57".Equals(estadoActual))
+                {
+                    ProcesarEstado57();
+                }
+                else if ("q58".Equals(estadoActual))
+                {
+                    ProcesarEstado58();
+                }
+                else if ("q59".Equals(estadoActual))
+                {
+                    ProcesarEstado59();
+                }
 
 
             }
@@ -892,6 +972,410 @@ namespace Compilador.AnalisisLexico
             continuarAnalisis = false;
 
         }
+        public void ProcesarEstado50()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q51";
+            }
+
+        }
+        public void ProcesarEstado51()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q52";
+            }
+            else
+            {
+                estadoActual = "q138";
+            }
+
+        }
+        public void ProcesarEstado52()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q53";
+            }
+            else
+            {
+                estadoActual = "q139";
+            }
+
+        }
+        public void ProcesarEstado53()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q54";
+            }
+            else
+            {
+                estadoActual = "q140";
+            }
+
+        }
+        public void ProcesarEstado54()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q55";
+            }
+            else
+            {
+                estadoActual = "q141";
+            }
+
+        }
+        public void ProcesarEstado55()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q56";
+            }
+            else
+            {
+                estadoActual = "q142";
+            }
+
+        }
+        public void ProcesarEstado56()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q57";
+            }
+            else
+            {
+                estadoActual = "q143";
+            }
+
+        }
+        public void ProcesarEstado57()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q58";
+            }
+            else
+            {
+                estadoActual = "q144";
+            }
+
+        }
+        public void ProcesarEstado58()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q59";
+            }
+            else
+            {
+                estadoActual = "q145";
+            }
+
+        }
+        public void ProcesarEstado59()
+        {
+            Concatenar();
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsPuntoYComa;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado60()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q61";
+            }
+
+        }
+        public void ProcesarEstado61()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q62";
+            }
+            else
+            {
+                estadoActual = "q147";
+            }
+
+        }
+        public void ProcesarEstado62()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q63";
+            }
+            else
+            {
+                estadoActual = "q148";
+            }
+
+        }
+        public void ProcesarEstado63()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q64";
+            }
+            else
+            {
+                estadoActual = "q149";
+            }
+
+        }
+        public void ProcesarEstado64()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q65";
+            }
+            else
+            {
+                estadoActual = "q150";
+            }
+
+        }
+        public void ProcesarEstado65()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q66";
+            }
+            else
+            {
+                estadoActual = "q151";
+            }
+
+        }
+        public void ProcesarEstado66()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q67";
+            }
+            else
+            {
+                estadoActual = "q152";
+            }
+
+        }
+        public void ProcesarEstado67()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q68";
+            }
+            else
+            {
+                estadoActual = "q153";
+            }
+
+        }
+        public void ProcesarEstado68()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q69";
+            }
+            else
+            {
+                estadoActual = "q154";
+            }
+
+        }
+        public void ProcesarEstado69()
+        {
+            Concatenar();
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito2;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado70()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q71";
+            }
+
+        }
+        public void ProcesarEstado71()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q72";
+            }
+            else
+            {
+                estadoActual = "q156";
+            }
+
+        }
+        public void ProcesarEstado72()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q73";
+            }
+            else
+            {
+                estadoActual = "q157";
+            }
+
+        }
+        public void ProcesarEstado73()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q74";
+            }
+            else
+            {
+                estadoActual = "q158";
+            }
+
+        }
+        public void ProcesarEstado74()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q75";
+            }
+            else
+            {
+                estadoActual = "q159";
+            }
+
+        }
+        public void ProcesarEstado75()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q76";
+            }
+            else
+            {
+                estadoActual = "q160";
+            }
+
+        }
+        public void ProcesarEstado76()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q77";
+            }
+            else
+            {
+                estadoActual = "q161";
+            }
+
+        }
+        public void ProcesarEstado77()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q78";
+            }
+            else
+            {
+                estadoActual = "q162";
+            }
+
+        }
+        public void ProcesarEstado78()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q79";
+            }
+            else
+            {
+                estadoActual = "q163";
+            }
+
+        }
+        public void ProcesarEstado79()
+        {
+            Concatenar();
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraZz;
+            continuarAnalisis = false;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void ProcesarEstado102()
         {
             DevolverPuntero();
@@ -1123,6 +1607,129 @@ namespace Compilador.AnalisisLexico
             continuarAnalisis = false;
 
         }
+        public void ProcesarEstado138()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito3;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado139()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito4;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado140()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito5;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado141()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito6;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado142()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito7;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado143()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito8;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado144()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito9;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado145()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsComa;
+            continuarAnalisis = false;
+
+        }
+
+
+        public void ProcesarEstado147()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraA_TILDE;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado148()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraE_TILDE;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado149()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraI_TILDE;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado150()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraO_TILDE;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado151()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraU_TILDE;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado152()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraU_DIERESIS;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado153()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito0;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado154()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsDiguito1;
+            continuarAnalisis = false;
+
+        }
+     
+
+
+
+
+
+
+
+
         public string GetResultado()
         {
             return resultado;
