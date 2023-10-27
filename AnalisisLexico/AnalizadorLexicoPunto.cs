@@ -1112,14 +1112,14 @@ namespace Compilador.AnalisisLexico
         public void ProcesarEstado135()
         {
             DevolverPuntero();
-            categoria = CategoriaGramatical.EsLlaves;
+            categoria = CategoriaGramatical.EsLlavesAbre;
             continuarAnalisis = false;
 
         }
         public void ProcesarEstado136()
         {
             DevolverPuntero();
-            categoria = CategoriaGramatical.EsDivision;
+            categoria = CategoriaGramatical.EsLlavesCierra;
             continuarAnalisis = false;
 
         }
