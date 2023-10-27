@@ -19,6 +19,6 @@ namespace Compilador.AnalisisLexico
         EsSuma, EsResta, EsMultiplicacion, EsDivision, EsModulo, EsAsignacion, EsBarraInversa,
         EsOr, EsComillaDoble, EsComillaSimple, EsPotencia, EsAdmiracionAbre, EsAdmiracionCierra,
         EsPreguntaAbre, EsPreguntaCierra, EsGionBajo, EsMayorQue, EsMenorQue, EsAGuionBajo, 
-        EsOGuionBajo, EsTilde, EsComillaBajaAbre, EsComillaBajaCierra, EsEspacioEnBlanco,DEFECTO
+        EsOGuionBajo, EsTilde, EsComillaBajaAbre, EsComillaBajaCierra, EsEspacioEnBlanco,DEFECTO, FIN_ARCHIVO
     }
 }

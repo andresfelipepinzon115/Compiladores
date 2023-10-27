@@ -114,15 +114,15 @@ namespace Compilador.AnalisisLexico
                 }
                 else if ("q7".Equals(estadoActual))
                 {
+                    ProcesarEstado7();
+                }
+                else if ("q8".Equals(estadoActual))
+                {
                     ProcesarEstado8();
                 }
                 else if ("q9".Equals(estadoActual))
                 {
                     ProcesarEstado9();
-                }
-                else if ("q10".Equals(estadoActual))
-                {
-                    ProcesarEstado10();
                 }
                 else if ("q10".Equals(estadoActual))
                 {
@@ -324,6 +324,472 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado59();
                 }
+                else if ("q60".Equals(estadoActual))
+                {
+                    ProcesarEstado60();
+                }
+                else if ("q61".Equals(estadoActual))
+                {
+                    ProcesarEstado61();
+                }
+                else if ("q62".Equals(estadoActual))
+                {
+                    ProcesarEstado62();
+                }
+                else if ("q63".Equals(estadoActual))
+                {
+                    ProcesarEstado63();
+                }
+                else if ("q64".Equals(estadoActual))
+                {
+                    ProcesarEstado64();
+                }
+                else if ("q65".Equals(estadoActual))
+                {
+                    ProcesarEstado65();
+                }
+                else if ("q66".Equals(estadoActual))
+                {
+                    ProcesarEstado66();
+                }
+                else if ("q67".Equals(estadoActual))
+                {
+                    ProcesarEstado67();
+                }
+                else if ("q68".Equals(estadoActual))
+                {
+                    ProcesarEstado68();
+                }
+                else if ("q69".Equals(estadoActual))
+                {
+                    ProcesarEstado69();
+                }
+                else if ("q70".Equals(estadoActual))
+                {
+                    ProcesarEstado70();
+                }
+                else if ("q71".Equals(estadoActual))
+                {
+                    ProcesarEstado71();
+                }
+                else if ("q72".Equals(estadoActual))
+                {
+                    ProcesarEstado72();
+                }
+                else if ("q73".Equals(estadoActual))
+                {
+                    ProcesarEstado73();
+                }
+                else if ("q74".Equals(estadoActual))
+                {
+                    ProcesarEstado74();
+                }
+                else if ("q75".Equals(estadoActual))
+                {
+                    ProcesarEstado75();
+                }
+                else if ("q76".Equals(estadoActual))
+                {
+                    ProcesarEstado76();
+                }
+                else if ("q77".Equals(estadoActual))
+                {
+                    ProcesarEstado77();
+                }
+                else if ("q78".Equals(estadoActual))
+                {
+                    ProcesarEstado78();
+                }
+                else if ("q79".Equals(estadoActual))
+                {
+                    ProcesarEstado79();
+                }
+                else if ("q80".Equals(estadoActual))
+                {
+                    ProcesarEstado80();
+                }
+                else if ("q81".Equals(estadoActual))
+                {
+                    ProcesarEstado81();
+                }
+                else if ("q82".Equals(estadoActual))
+                {
+                    ProcesarEstado82();
+                }
+                else if ("q83".Equals(estadoActual))
+                {
+                    ProcesarEstado83();
+                }
+                else if ("q84".Equals(estadoActual))
+                {
+                    ProcesarEstado84();
+                }
+                else if ("q85".Equals(estadoActual))
+                {
+                    ProcesarEstado85();
+                }
+                else if ("q86".Equals(estadoActual))
+                {
+                    ProcesarEstado86();
+                }
+                else if ("q87".Equals(estadoActual))
+                {
+                    ProcesarEstado87();
+                }
+                else if ("q88".Equals(estadoActual))
+                {
+                    ProcesarEstado88();
+                }
+                else if ("q89".Equals(estadoActual))
+                {
+                    ProcesarEstado89();
+                }
+                else if ("q90".Equals(estadoActual))
+                {
+                    ProcesarEstado90();
+                }
+                else if ("q91".Equals(estadoActual))
+                {
+                    ProcesarEstado91();
+                }
+                else if ("q92".Equals(estadoActual))
+                {
+                    ProcesarEstado92();
+                }
+                else if ("q93".Equals(estadoActual))
+                {
+                    ProcesarEstado93();
+                }
+                else if ("q94".Equals(estadoActual))
+                {
+                    ProcesarEstado94();
+                }
+                else if ("q95".Equals(estadoActual))
+                {
+                    ProcesarEstado95();
+                }
+                else if ("q96".Equals(estadoActual))
+                {
+                    ProcesarEstado96();
+                }
+                else if ("q97".Equals(estadoActual))
+                {
+                    ProcesarEstado97();
+                }
+                else if ("q98".Equals(estadoActual))
+                {
+                    ProcesarEstado98();
+                }
+                else if ("q99".Equals(estadoActual))
+                {
+                    ProcesarEstado99();
+                }
+                else if ("q100".Equals(estadoActual))
+                {
+                    ProcesarEstado100();
+                }
+                else if ("q101".Equals(estadoActual))
+                {
+                    ProcesarEstado101();
+                }
+                else if ("q102".Equals(estadoActual))
+                {
+                    ProcesarEstado102();
+                }
+                else if ("q103".Equals(estadoActual))
+                {
+                    ProcesarEstado103();
+                }
+                else if ("q104".Equals(estadoActual))
+                {
+                    ProcesarEstado104();
+                }
+                else if ("q105".Equals(estadoActual))
+                {
+                    ProcesarEstado105();
+                }
+                else if ("q106".Equals(estadoActual))
+                {
+                    ProcesarEstado106();
+                }
+                else if ("q107".Equals(estadoActual))
+                {
+                    ProcesarEstado107();
+                }
+                else if ("q108".Equals(estadoActual))
+                {
+                    ProcesarEstado108();
+                }
+                else if ("q109".Equals(estadoActual))
+                {
+                    ProcesarEstado109();
+                }
+                else if ("q111".Equals(estadoActual))
+                {
+                    ProcesarEstado111();
+                }
+                else if ("q112".Equals(estadoActual))
+                {
+                    ProcesarEstado112();
+                }
+                else if ("q113".Equals(estadoActual))
+                {
+                    ProcesarEstado113();
+                }
+                else if ("q114".Equals(estadoActual))
+                {
+                    ProcesarEstado114();
+                }
+                else if ("q115".Equals(estadoActual))
+                {
+                    ProcesarEstado115();
+                }
+                else if ("q116".Equals(estadoActual))
+                {
+                    ProcesarEstado116();
+                }
+                else if ("q117".Equals(estadoActual))
+                {
+                    ProcesarEstado117();
+                }
+                else if ("q118".Equals(estadoActual))
+                {
+                    ProcesarEstado118();
+                }
+                else if ("q119".Equals(estadoActual))
+                {
+                    ProcesarEstado119();
+                }
+                else if ("q120".Equals(estadoActual))
+                {
+                    ProcesarEstado120();
+                }
+                else if ("q121".Equals(estadoActual))
+                {
+                    ProcesarEstado121();
+                }
+                else if ("q122".Equals(estadoActual))
+                {
+                    ProcesarEstado122();
+                }
+                else if ("q123".Equals(estadoActual))
+                {
+                    ProcesarEstado123();
+                }
+                else if ("q124".Equals(estadoActual))
+                {
+                    ProcesarEstado124();
+                }
+                else if ("q125".Equals(estadoActual))
+                {
+                    ProcesarEstado125();
+                }
+                else if ("q126".Equals(estadoActual))
+                {
+                    ProcesarEstado126();
+                }
+                else if ("q127".Equals(estadoActual))
+                {
+                    ProcesarEstado127();
+                }
+
+                else if ("q129".Equals(estadoActual))
+                {
+                    ProcesarEstado129();
+                }
+                else if ("q130".Equals(estadoActual))
+                {
+                    ProcesarEstado130();
+                }
+                else if ("q131".Equals(estadoActual))
+                {
+                    ProcesarEstado131();
+                }
+                else if ("q132".Equals(estadoActual))
+                {
+                    ProcesarEstado132();
+                }
+                else if ("q133".Equals(estadoActual))
+                {
+                    ProcesarEstado133();
+                }
+                else if ("q134".Equals(estadoActual))
+                {
+                    ProcesarEstado134();
+                }
+                else if ("q135".Equals(estadoActual))
+                {
+                    ProcesarEstado135();
+                }
+                else if ("q136".Equals(estadoActual))
+                {
+                    ProcesarEstado136();
+                }
+
+                else if ("q138".Equals(estadoActual))
+                {
+                    ProcesarEstado138();
+                }
+                else if ("q139".Equals(estadoActual))
+                {
+                    ProcesarEstado139();
+                }
+                else if ("q140".Equals(estadoActual))
+                {
+                    ProcesarEstado140();
+                }
+                else if ("q141".Equals(estadoActual))
+                {
+                    ProcesarEstado141();
+                }
+                else if ("q142".Equals(estadoActual))
+                {
+                    ProcesarEstado142();
+                }
+                else if ("q143".Equals(estadoActual))
+                {
+                    ProcesarEstado143();
+                }
+                else if ("q144".Equals(estadoActual))
+                {
+                    ProcesarEstado144();
+                }
+                else if ("q145".Equals(estadoActual))
+                {
+                    ProcesarEstado145();
+                }
+
+                else if ("q147".Equals(estadoActual))
+                {
+                    ProcesarEstado147();
+                }
+                else if ("q148".Equals(estadoActual))
+                {
+                    ProcesarEstado148();
+                }
+                else if ("q149".Equals(estadoActual))
+                {
+                    ProcesarEstado149();
+                }
+                else if ("q150".Equals(estadoActual))
+                {
+                    ProcesarEstado150();
+                }
+                else if ("q151".Equals(estadoActual))
+                {
+                    ProcesarEstado151();
+                }
+                else if ("q152".Equals(estadoActual))
+                {
+                    ProcesarEstado152();
+                }
+                else if ("q153".Equals(estadoActual))
+                {
+                    ProcesarEstado153();
+                }
+                else if ("q154".Equals(estadoActual))
+                {
+                    ProcesarEstado154();
+                }
+
+                else if ("q156".Equals(estadoActual))
+                {
+                    ProcesarEstado156();
+                }
+                else if ("q157".Equals(estadoActual))
+                {
+                    ProcesarEstado157();
+                }
+                else if ("q158".Equals(estadoActual))
+                {
+                    ProcesarEstado158();
+                }
+                else if ("q159".Equals(estadoActual))
+                {
+                    ProcesarEstado159();
+                }
+                else if ("q160".Equals(estadoActual))
+                {
+                    ProcesarEstado160();
+                }
+                else if ("q161".Equals(estadoActual))
+                {
+                    ProcesarEstado161();
+                }
+                else if ("q162".Equals(estadoActual))
+                {
+                    ProcesarEstado162();
+                }
+                else if ("q163".Equals(estadoActual))
+                {
+                    ProcesarEstado163();
+                }
+
+                else if ("q165".Equals(estadoActual))
+                {
+                    ProcesarEstado165();
+                }
+                else if ("q166".Equals(estadoActual))
+                {
+                    ProcesarEstado166();
+                }
+                else if ("q167".Equals(estadoActual))
+                {
+                    ProcesarEstado167();
+                }
+                else if ("q168".Equals(estadoActual))
+                {
+                    ProcesarEstado168();
+                }
+                else if ("q169".Equals(estadoActual))
+                {
+                    ProcesarEstado169();
+                }
+                else if ("q170".Equals(estadoActual))
+                {
+                    ProcesarEstado170();
+                }
+                else if ("q171".Equals(estadoActual))
+                {
+                    ProcesarEstado171();
+                }
+                else if ("q172".Equals(estadoActual))
+                {
+                    ProcesarEstado172();
+                }
+
+                else if ("q174".Equals(estadoActual))
+                {
+                    ProcesarEstado174();
+                }
+                else if ("q175".Equals(estadoActual))
+                {
+                    ProcesarEstado175();
+                }
+                else if ("q176".Equals(estadoActual))
+                {
+                    ProcesarEstado176();
+                }
+                else if ("q177".Equals(estadoActual))
+                {
+                    ProcesarEstado177();
+                }
+                else if ("q178".Equals(estadoActual))
+                {
+                    ProcesarEstado178();
+                }
+                else if ("q179".Equals(estadoActual))
+                {
+                    ProcesarEstado179();
+                }
+                else if ("q180".Equals(estadoActual))
+                {
+                    ProcesarEstado180();
+                }
+                else if ("q181".Equals(estadoActual))
+                {
+                    ProcesarEstado181();
+                }
 
 
             }
@@ -336,6 +802,18 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q1";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q100";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q101";
+            }
+            else
+            {
+
             }
         }
         public void ProcesarEstado1()
@@ -1364,15 +1842,279 @@ namespace Compilador.AnalisisLexico
         }
 
 
+        public void ProcesarEstado80()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q81";
+            }
 
+        }
+        public void ProcesarEstado81()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q82";
+            }
+            else
+            {
+                estadoActual = "q165";
+            }
 
+        }
+        public void ProcesarEstado82()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q83";
+            }
+            else
+            {
+                estadoActual = "q166";
+            }
 
+        }
+        public void ProcesarEstado83()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q84";
+            }
+            else
+            {
+                estadoActual = "q167";
+            }
 
+        }
+        public void ProcesarEstado84()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q85";
+            }
+            else
+            {
+                estadoActual = "q168";
+            }
 
+        }
+        public void ProcesarEstado85()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q86";
+            }
+            else
+            {
+                estadoActual = "q169";
+            }
 
+        }
+        public void ProcesarEstado86()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q87";
+            }
+            else
+            {
+                estadoActual = "q170";
+            }
 
+        }
+        public void ProcesarEstado87()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q88";
+            }
+            else
+            {
+                estadoActual = "q171";
+            }
 
+        }
+        public void ProcesarEstado88()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q89";
+            }
+            else
+            {
+                estadoActual = "q172";
+            }
 
+        }
+        public void ProcesarEstado89()
+        {
+            Concatenar();
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraQq;
+            continuarAnalisis = false;
+
+        }
+
+        public void ProcesarEstado90()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q91";
+            }
+
+        }
+        public void ProcesarEstado91()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q92";
+            }
+            else
+            {
+                estadoActual = "q174";
+            }
+
+        }
+        public void ProcesarEstado92()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q93";
+            }
+            else
+            {
+                estadoActual = "q175";
+            }
+
+        }
+        public void ProcesarEstado93()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q94";
+            }
+            else
+            {
+                estadoActual = "q176";
+            }
+
+        }
+        public void ProcesarEstado94()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q95";
+            }
+            else
+            {
+                estadoActual = "q177";
+            }
+
+        }
+        public void ProcesarEstado95()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q96";
+            }
+            else
+            {
+                estadoActual = "q178";
+            }
+
+        }
+        public void ProcesarEstado96()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q97";
+            }
+            else
+            {
+                estadoActual = "q179";
+            }
+
+        }
+        public void ProcesarEstado97()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q98";
+            }
+            else
+            {
+                estadoActual = "q180";
+            }
+
+        }
+        public void ProcesarEstado98()
+        {
+            Concatenar();
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q99";
+            }
+            else
+            {
+                estadoActual = "q181";
+            }
+
+        }
+        public void ProcesarEstado99()
+        {
+            Concatenar();
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraIi;
+            continuarAnalisis = false;
+
+        }
+        private void ProcesarEstado100()
+        {
+            categoria = CategoriaGramatical.FIN_ARCHIVO;
+            lexema = "@EOF@";
+            //FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
+        }
+        private void ProcesarEstado101()
+        {
+            CargarNuevaLinea();
+            Resetear();
+        }
 
 
 
@@ -1721,12 +2463,178 @@ namespace Compilador.AnalisisLexico
             continuarAnalisis = false;
 
         }
-     
 
+        public void ProcesarEstado156()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraRr;
+            continuarAnalisis = false;
 
+        }
+        public void ProcesarEstado157()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraSs;
+            continuarAnalisis = false;
 
+        }
+        public void ProcesarEstado158()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraTt;
+            continuarAnalisis = false;
 
+        }
+        public void ProcesarEstado159()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraUu;
+            continuarAnalisis = false;
 
+        }
+        public void ProcesarEstado160()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraVv;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado161()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraWw;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado162()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraXx;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado163()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraYy;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado165()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraJj;
+            continuarAnalisis = false;
+
+        }
+
+        public void ProcesarEstado166()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraKk;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado167()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraLl;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado168()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraMm;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado169()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraNn;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado170()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraÑñ;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado171()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraOo;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado172()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraPp;
+            continuarAnalisis = false;
+
+        }
+
+        public void ProcesarEstado174()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraAa;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado175()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraBb;
+            continuarAnalisis = false;
+
+        }
+
+        public void ProcesarEstado176()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraCc;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado177()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraDd;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado178()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraEe;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado179()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraFf;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado180()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraGg;
+            continuarAnalisis = false;
+
+        }
+        public void ProcesarEstado181()
+        {
+            DevolverPuntero();
+            categoria = CategoriaGramatical.EsLetraHh;
+            continuarAnalisis = false;
+
+        }
 
 
 

@@ -26,20 +26,47 @@ namespace Compilador.AnalisisLexico
         }
 
         public int NumeroLinea { get => numeroLinea; set => numeroLinea = value; }
-        public int PosicionInicial { get => posicionInicial; set => posicionInicial = value; }
-        public int PosicionFinal { get => posicionFinal; set => posicionFinal = value; }
+        public int PosicionInicial { get => posicionInicial; set => posicionInicial = (value < 0) ? 1 : value; }
+        public int PosicionFinal { get => posicionFinal; set => posicionFinal = (value < 0) ? 1 : value; }
         public string Lexema { get => lexema; set => lexema = value; }
         public CategoriaGramatical Categoria { get => categoria; set => categoria = value; }
-        internal TipoComponente Tipo { get => tipo; set => tipo = value; }
+        public TipoComponente Tipo { get => tipo; set => tipo = value; }
 
-        public static ComponenteLexico CREAR_SIMBOLO(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria, TipoComponente tipo)
+        public static ComponenteLexico CREAR_SIMBOLO(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
         {
             return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.SIMBOLO);
         }
-        public static ComponenteLexico CREAR_
+        public static ComponenteLexico CREAR_LITERAL(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        {
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.LITERAL);
+        }
+        public static ComponenteLexico CREAR_DUMMY(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        {
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.DUMMY);
+        }
+        public static ComponenteLexico CREAR_PALABRA_RESERVADA(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        {
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.PALABRA_RESERVADA);
+        }
 
-    } 
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(".................................INICIO..............................................").Append("\r\n");
+            sb.Append("Tipo: ").Append(Tipo).Append("\r\n");
+            sb.Append("Categoria : ").Append(Categoria).Append("\r\n");
+            sb.Append("Lexema: ").Append(Lexema).Append("\r\n");
+            sb.Append("Numero Linea: ").Append(NumeroLinea).Append("\r\n");
+            sb.Append("Posicion Inicial: ").Append(PosicionInicial).Append("\r\n");
+            sb.Append("Posicion Final: ").Append(PosicionFinal).Append("\r\n");
+            sb.Append("..................................fIN................................................").Append("\r\n");
+
+            return sb.ToString();
 
 
-}
+        }
+
+
+    }
         

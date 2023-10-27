@@ -411,6 +411,14 @@ namespace Compilador.Util
         {
             return caracter == " ";
         }
+        public static bool EsFinArchivo(string caracter)
+        {
+            return "@EOF@".Equals(caracter);
+        }
+        public static bool EsFinLinea(string caracter)
+        {
+            return "@FL@".Equals(caracter);
+        }
     }
 
 }
