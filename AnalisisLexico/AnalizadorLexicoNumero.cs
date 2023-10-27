@@ -1,42 +1,42 @@
-﻿using Compilador.Util;
+﻿using Compilador.Cache;
+using Compilador.Util;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Compilador.AnalisisLexico
 {
-    public class AnalizadorLexico
+    public class AnalizadorLexicoNumero
     {
+
         private int numeroLineaActual = 0;
         private string contenidoLineaActual = "";
         private int puntero = 0;
-
-        private string estadoActual = "";
-        private String caracterActual;
-        public string categoria = "";
+        private string caracterActual = "";
         private string lexema = "";
+        private CategoriaGramatical categoria;
+        private string estadoActual = "";
         private int posicionInicial = 0;
-        private int posicionFinal = 0;
-        private bool continuarAnalisis = false;
-        private String resultado = "";
-        private StreamWriter textOut;
+        private bool continuarAnalisis = true;
+        private ComponenteLexico componente = null;
+        private string falla = "";
+        private string causa = "";
+        private string solucion = "";
 
-        public AnalizadorLexico(StreamWriter textOut)
+
+        public AnalixadorLexico()
         {
-            this.textOut = textOut;
             CargarNuevaLinea();
         }
-
         private void CargarNuevaLinea()
         {
-            if ("@EOF@".Equals(contenidoLineaActual))
+            if (!"@EOF@".Equals(contenidoLineaActual))
             {
                 numeroLineaActual = numeroLineaActual + 1;
-                contenidoLineaActual = Cache.DataCache.ObtenerLinea(numeroLineaActual).Contenido;
-                numeroLineaActual = Cache.DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
+                contenidoLineaActual = DataCache.ObtenerLinea(numeroLineaActual).Contenido;
+                numeroLineaActual = DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
             }
 
@@ -55,25 +55,34 @@ namespace Compilador.AnalisisLexico
             {
                 caracterActual = contenidoLineaActual.Substring(puntero - 1, 1);
                 puntero = puntero + 1;
-
             }
-
-
         }
         private void DevolverPuntero()
         {
-            puntero = puntero - 1;
+            if (!"@EOF@".Equals(caracterActual))
+            {
+                puntero = puntero - 1;
+            }
 
+        }
+        private void Concatenar()
+        {
+            lexema = lexema + caracterActual;
         }
         private void Resetear()
         {
             estadoActual = "q0";
             lexema = "";
+            categoria = CategoriaGramatical.DEFECTO;
+            posicionInicial = 0;
             caracterActual = "";
-            categoria = "";
             continuarAnalisis = true;
+            componente = null;
+            falla = "";
+            causa = "";
+            solucion = "";
         }
-        public String DevolverSiguienteComponente()
+        public ComponenteLexico DevolverSiguienteComponente()
         {
             Resetear();
 
@@ -82,662 +91,231 @@ namespace Compilador.AnalisisLexico
                 if ("q0".Equals(estadoActual))
                 {
                     ProcesarEstado0();
-
-                }else if("q1".Equals(estadoActual)
-                {
-                    procesarEstado1()
-                }else if ("q11".Equals(estadoActual))
-                {
-                    ProcesarEstado11();
-                }else if ("21".Equals(estadoActual))
-                {
-                    ProcesarEstado21();
-                }else if ("31".Equals(estadoActual))
-                {
-                    ProcesarEstado31();
-                }else if ("41".Equals(estadoActual))
-                {
-                    ProcesarEstado41();
-                }else if ("51".Equals(estadoActual))
-                {
-                    ProcesarEstado51();
-                }else if ("61".Equals(estadoActual))
-                {
-                    ProcesarEstado61();
-                }else if ("71".Equals(estadoActual))
-                {
-                    ProcesarEstado71();
-                }else if ("81".Equals(estadoActual))
-                {
-                    ProcesarEstado81();
                 }
-
+                else if ("q1".Equals(estadoActual))
+                {
+                    ProcesarEstado1();
+                }
+                else if ("q2".Equals(estadoActual))
+                {
+                    ProcesarEstado2();
+                }
+                else if ("q3".Equals(estadoActual))
+                {
+                    ProcesarEstado3();
+                }
+                else if ("q4".Equals(estadoActual))
+                {
+                    ProcesarEstado4();
+                }
+                else if ("q12".Equals(estadoActual))
+                {
+                    ProcesarEstado12();
+                }
+                else if ("q13".Equals(estadoActual))
+                {
+                    ProcesarEstado13();
+                }
+                else if ("q14".Equals(estadoActual))
+                {
+                    ProcesarEstado14();
+                }
+                else if ("q15".Equals(estadoActual))
+                {
+                    ProcesarEstado15();
+                }
+                else if ("q16".Equals(estadoActual))
+                {
+                    ProcesarEstado16();
+                }
+                else if ("q17".Equals(estadoActual))
+                {
+                    ProcesarEstado17();
+                }
+                else
+                {
+                    ProcesarEstado18();
+                }
             }
-            return lexema;
+            TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
+            return componente;
         }
-
-        public string ProcesarEstado0()
+        private void ProcesarEstado0()
         {
             DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
-            {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q1";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q11";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q21";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q31";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q41";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q51";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q61";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q71";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q81";
-                    resultado = FormarComponeneteLexico();
-                }
-               
-                else if ("@EOF@".Equals(caracterActual))
-                {
-                    categoria = "FIN ARCHIVO";
-                    resultado = FormarComponeneteLexico();
-                    continuarAnalisis = false;
-                }
-                else if ("@FL@".Equals(caracterActual))
-                {
-                    CargarNuevaLinea();
-                }
-
-            }
-            return resultado;
-        }
-        private void procesarEstado1()
-        {
-            concatenar();
-            LeerSiguienteCaracter();
-            if (UtilNumero.EsNumero1(caracterActual))
-            {
-                estadoActual = "q2";
-                resultado = FormarComponeneteLexico();            
-            }
-            if (UtilNumero.EsNumero2(caracterActual))
-            {
-                estadoActual = "q3";
-                resultado = FormarComponeneteLexico();
-            }
-            if (UtilNumero.EsNumero3(caracterActual))
+            if (UtilTexto.EsLetra(caracterActual) || UtilTexto.EsGuionBajo(caracterActual) || UtilTexto.EsSignoPesos(caracterActual))
             {
                 estadoActual = "q4";
-                resultado = FormarComponeneteLexico();
             }
-            if (UtilNumero.EsNumero4(caracterActual))
+            else if (UtilTexto.EsDiguito(caracterActual))
             {
-                estadoActual = "q5";
-                resultado = FormarComponeneteLexico();
+                estadoActual = "q1";
             }
-            if (UtilNumero.EsNumero5(caracterActual))
+            else if (UtilTexto.EsFinArchivo(caracterActual))
             {
-                estadoActual = "q6";
-                resultado = FormarComponeneteLexico();
+                estadoActual = "q12";
             }
-            if (UtilNumero.EsNumero6(caracterActual))
+            else if (UtilTexto.EsFinLinea(caracterActual))
             {
-                estadoActual = "q7";
-                resultado = FormarComponeneteLexico();
+                estadoActual = "q13";
             }
-            if (UtilNumero.EsNumero7(caracterActual))
+            else
             {
-                estadoActual = "q8";
-                resultado = FormarComponeneteLexico();
+                estadoActual = "18";
             }
-            if (UtilNumero.EsNumero8(caracterActual))
-            {
-                estadoActual = "q9";
-                resultado = FormarComponeneteLexico();
-            }
-            if (UtilNumero.EsNumero9(caracterActual))
-            {
-                estadoActual = "q10";
-                resultado = FormarComponeneteLexico();
-            }
-
         }
-        public string ProcesarEstado11()
+        private void ProcesarEstado1()
         {
-            concatenar();
+            Concatenar();
             LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
+            if (UtilTexto.EsDiguito(caracterActual))
             {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q12";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q13";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q14";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q15";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q16";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q17";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q18";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q19";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q20";
-                    resultado = FormarComponeneteLexico();
-                }
-
+                estadoActual = "q1";
             }
-            return resultado;
+            else if (UtilTexto.EsComa(caracterActual))
+            {
+                estadoActual = "q2";
+            }
+            else
+            {
+                estadoActual = "q14";
+            }
         }
-
-        public string ProcesarEstado21()
+        private void ProcesarEstado2()
         {
-            concatenar();
+            Concatenar();
             LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
+            if (UtilTexto.EsDiguito(caracterActual))
             {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q22";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q23";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q24";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q25";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q26";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q27";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q28";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q29";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q30";
-                    resultado = FormarComponeneteLexico();
-                }
-
+                estadoActual = "q3";
             }
-            return resultado;
+            else
+            {
+                estadoActual = "q17";
+            }
         }
-
-        public string ProcesarEstado31()
+        private void ProcesarEstado3()
         {
-            concatenar();
+            Concatenar();
             LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
+            if (UtilTexto.EsDiguito(caracterActual))
             {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q32";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q33";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q34";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q35";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q36";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q37";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q38";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q39";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q40";
-                    resultado = FormarComponeneteLexico();
-                }
-
+                estadoActual = "q3";
             }
-            return resultado;
+            else
+            {
+                estadoActual = "q15";
+            }
         }
-
-        public string ProcesarEstado41()
+        private void ProcesarEstado4()
         {
-            concatenar();
+            Concatenar();
             LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
+            if (UtilTexto.EsLetraODiguito(caracterActual) || UtilTexto.EsGuionBajo(caracterActual) || UtilTexto.EsSignoPesos(caracterActual))
             {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q42";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q43";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q44";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q45";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q46";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q47";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q48";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q49";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q50";
-                    resultado = FormarComponeneteLexico();
-                }
-
+                estadoActual = "q4";
             }
-            return resultado;
-        }
-
-        public string ProcesarEstado51()
-        {
-            concatenar();
-            LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
+            else
             {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q52";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q53";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q54";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q55";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q56";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q57";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q58";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q59";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q60";
-                    resultado = FormarComponeneteLexico();
-                }
-
+                estadoActual = "q16";
             }
-            return resultado;
         }
-
-        public string ProcesarEstado61()
+        private void ProcesarEstado12()
         {
-            concatenar();
-            LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
-            {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q62";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q63";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q64";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q65";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q66";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q67";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q68";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q69";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q70";
-                    resultado = FormarComponeneteLexico();
-                }
-
-            }
-            return resultado;
+            categoria = CategoriaGramatical.FIN_ARCHIVO;
+            lexema = "@EOF@";
+            FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
         }
-
-        public string ProcesarEstado71()
+        private void ProcesarEstado13()
         {
-            concatenar();
-            LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
-            {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q72";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q73";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q74";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q75";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q76";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q77";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q78";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q79";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q80";
-                    resultado = FormarComponeneteLexico();
-                }
-
-            }
-            return resultado;
+            CargarNuevaLinea();
+            Resetear();
         }
 
-        public string ProcesarEstado81()
+        private void ProcesarEstado14()
         {
-            concatenar();
-            LeerSiguienteCaracter();
-            DevorarEspaciosBlanco();
-            while (!"@EOF@".Equals(caracterActual))
-            {
-                if (UtilNumero.EsNumero1(caracterActual))
-                {
-                    estadoActual = "q82";
-                    resultado = FormarComponeneteLexico();
-
-                    Console.WriteLine("Resultado: " + resultado);
-                }
-                else if (UtilNumero.EsNumero2(caracterActual))
-                {
-                    estadoActual = "q83";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero3(caracterActual))
-                {
-                    estadoActual = "q84";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero4(caracterActual))
-                {
-                    estadoActual = "q85";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero5(caracterActual))
-                {
-                    estadoActual = "q86";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero6(caracterActual))
-                {
-                    estadoActual = "q87";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero7(caracterActual))
-                {
-                    estadoActual = "q88";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero8(caracterActual))
-                {
-                    estadoActual = "q89";
-                    resultado = FormarComponeneteLexico();
-                }
-                else if (UtilNumero.EsNumero9(caracterActual))
-                {
-                    estadoActual = "q90";
-                    resultado = FormarComponeneteLexico();
-                }
-
-            }
-            return resultado;
+            DevolverPuntero();
+            categoria = CategoriaGramatical.NUMERO_ENTERO;
+            FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
         }
-        private void concatenar()
+        private void ProcesarEstado15()
         {
-            lexema = lexema + estadoActual  
+            DevolverPuntero();
+            categoria = CategoriaGramatical.NUMERO_DECIMAL;
+            FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
         }
-        public string GetResultado()
+        private void ProcesarEstado16()
         {
-            return resultado;
+            DevolverPuntero();
+            categoria = CategoriaGramatical.IDENTIFICADOR;
+            FormarComponenteLexicoSimbolo();
+            continuarAnalisis = false;
         }
+        private void ProcesarEstado17()
+        {
+            //ERROR DECIMAL NO VALIDO
+            DevolverPuntero();
+            falla = "Numero Decimal no valido";
+            causa = " se recibió luego del separador decimal el simbolo " + caracterActual;
+            solucion = "Asegurese que en la posicion esperada  se encuentre un diguito, para formar un númer decimal válido...";
+            ReportarErrorLexicoRecuperable();
+            caracterActual = "0";
+            Concatenar();
+            categoria = CategoriaGramatical.NUMERO_DECIMAL;
+            FormarComponenteLexicoDummy();
+            continuarAnalisis = false;
+        }
+        private void ProcesarEstado18()
+        {
+            //ERROR SIMBOLO NO VALIDO
+            falla = "Simbolo no valido";
+            causa = " se recibió el simbolo no reconocido por el lenguaje  " + caracterActual;
+            solucion = "Asegurese que en la posicion esperada  se encuentre un simbolo valido, reconocido por el lenguaje...";
+            ReportarErrorLexicoStopper();
 
 
+        }
+        private void FormarComponenteLexicoSimbolo()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_SIMBOLO(numeroLineaActual, posicionInicial, lexema, categoria);
+
+        }
+        private void FormarComponenteLexicoDummy()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_DUMMY(numeroLineaActual, posicionInicial, lexema, categoria);
+
+        }
+        private void FormarComponenteLexicoLiteral()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_LITERAL(numeroLineaActual, posicionInicial, lexema, categoria);
+
+        }
+        private void ReportarErrorLexicoRecuperable()
+        {
+            posicionInicial = puntero - lexema.Length;
+            Error error = Error.CREAR_ERROR_LEXICO_RECUPERABLE(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
+            ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
+
+        }
+        private void ReportarErrorLexicoStopper()
+        {
+            posicionInicial = puntero - lexema.Length;
+            Error error = Error.CREAR_ERROR_LEXICO_STOPPER(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
+            ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
+
+        }
         private void DevorarEspaciosBlanco()
         {
-            while (" ".Equals(caracterActual) || "\t".Equals(caracterActual))
+            while ("".Equals(caracterActual.Trim()) || " ".Equals(caracterActual))
             {
                 LeerSiguienteCaracter();
             }
         }
-        private string FormarComponeneteLexico()
-        {
-            posicionInicial = puntero - lexema.Length;
-            posicionFinal = puntero - 1;
-
-            // Construir una cadena que contenga la información
-            string informacion = $"categoria: {categoria}\n";
-            informacion += $"Lexema: {lexema}\n";
-            informacion += $"Numero linea: {numeroLineaActual}\n";
-            informacion += $"Posicion final: {posicionFinal}";
-
-            // Devolver la cadena construida
-            return informacion;
-            Resetear();
-            LeerSiguienteCaracter();
-        }
     }
-
 }
