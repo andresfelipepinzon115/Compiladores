@@ -1,4 +1,5 @@
-﻿using Compilador.Util;
+﻿using Compilador.TablaComponentes;
+using Compilador.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +25,7 @@ namespace Compilador.AnalisisLexico
         private bool continuarAnalisis = false;
         private String resultado = "";
         private StreamWriter textOut;
+        private ComponenteLexico componente = null;
 
         public AnalizadorLexicoPunto(StreamWriter textOut)
         {
@@ -78,7 +80,7 @@ namespace Compilador.AnalisisLexico
             categoria = CategoriaGramatical.DEFECTO;
             continuarAnalisis = true;
         }
-        public String DevolverSiguienteComponente()
+        public ComponenteLexico DevolverSiguienteComponente()
         {
             Resetear();
 
@@ -791,9 +793,9 @@ namespace Compilador.AnalisisLexico
                     ProcesarEstado181();
                 }
 
-
             }
-            return lexema;
+            TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
+            return componente;
         }
 
         public void ProcesarEstado0()
