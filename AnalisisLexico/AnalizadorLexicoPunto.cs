@@ -1,4 +1,5 @@
-﻿using Compilador.TablaComponentes;
+﻿using Compilador.GestorErrores;
+using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,9 @@ namespace Compilador.AnalisisLexico
         private String resultado = "";
         private StreamWriter textOut;
         private ComponenteLexico componente = null;
+        private string falla = "";
+        private string causa = "";
+        private string solucion = "";
 
         public AnalizadorLexicoPunto(StreamWriter textOut)
         {
@@ -792,6 +796,14 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado181();
                 }
+                else if ("q182".Equals(estadoActual))
+                {
+                    ProcesarEstado182();
+                }
+                else if ("q183".Equals(estadoActual))
+                {
+                    ProcesarEstado183();
+                }
 
             }
             TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
@@ -815,7 +827,7 @@ namespace Compilador.AnalisisLexico
             }
             else
             {
-
+                estadoActual = "q183";
             }
         }
         public void ProcesarEstado1()
@@ -830,6 +842,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q90";
             }
+            else
+            {
+                estadoActual = "q183";
+            }
         }
         public void ProcesarEstado2()
         {
@@ -842,6 +858,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q80";
+            }
+            else
+            {
+                estadoActual = "q183";
             }
         }
         public void ProcesarEstado3()
@@ -856,6 +876,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q70";
             }
+            else
+            {
+                estadoActual = "q183";
+            }
         }
         public void ProcesarEstado4()
         {
@@ -868,6 +892,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q60";
+            }
+            else
+            {
+                estadoActual = "q183";
             }
         }
         public void ProcesarEstado5()
@@ -882,6 +910,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q50";
             }
+            else
+            {
+                estadoActual = "q183";
+            }
         }
         public void ProcesarEstado6()
         {
@@ -894,6 +926,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q40";
+            }
+            else
+            {
+                estadoActual = "q183";
             }
         }
 
@@ -909,6 +945,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q30";
             }
+            else
+            {
+                estadoActual = "q183";
+            }
         }
         public void ProcesarEstado8()
         {
@@ -922,6 +962,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q20";
             }
+            else
+            {
+                estadoActual = "q183";
+            }
         }
         public void ProcesarEstado9()
         {
@@ -931,6 +975,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q10";
             }
+            else
+            {
+                estadoActual = "q183";
+            }
         }
         public void ProcesarEstado10()
         {
@@ -939,6 +987,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q11";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
             
         }
@@ -950,11 +1002,14 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q12";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual)) { 
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q102";
-            }
-            
+            } 
+
         }
         public void ProcesarEstado12()
         {
@@ -963,6 +1018,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q13";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -978,6 +1037,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q14";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q104";
@@ -991,6 +1054,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q15";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1006,6 +1073,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q16";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q106";
@@ -1019,6 +1090,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q17";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1034,6 +1109,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q18";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q108";
@@ -1047,6 +1126,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q19";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1070,6 +1153,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q21";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado21()
@@ -1079,6 +1166,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q22";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1094,6 +1185,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q23";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q112";
@@ -1107,6 +1202,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q24";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1122,6 +1221,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q25";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q114";
@@ -1135,6 +1238,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q26";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1150,6 +1257,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q27";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q116";
@@ -1164,6 +1275,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q28";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q117";
@@ -1177,6 +1292,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q29";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1200,6 +1319,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q31";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado31()
@@ -1209,6 +1332,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q32";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1224,6 +1351,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q33";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q121";
@@ -1237,6 +1368,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q34";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1252,6 +1387,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q35";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q123";
@@ -1265,6 +1404,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q36";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1280,6 +1423,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q37";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q125";
@@ -1294,6 +1441,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q38";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q126";
@@ -1307,6 +1458,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q39";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1330,6 +1485,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q41";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado41()
@@ -1339,6 +1498,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q42";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1354,6 +1517,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q43";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q130";
@@ -1367,6 +1534,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q44";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1382,6 +1553,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q45";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q132";
@@ -1395,6 +1570,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q46";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1410,6 +1589,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q47";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q134";
@@ -1424,6 +1607,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q48";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q135";
@@ -1437,6 +1624,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q49";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1460,6 +1651,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q51";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado51()
@@ -1469,6 +1664,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q52";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1484,6 +1683,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q53";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q139";
@@ -1497,6 +1700,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q54";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1512,6 +1719,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q55";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q141";
@@ -1525,6 +1736,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q56";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1540,6 +1755,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q57";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q143";
@@ -1554,6 +1773,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q58";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q144";
@@ -1567,6 +1790,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q59";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1590,6 +1817,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q61";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado61()
@@ -1599,6 +1830,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q62";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1614,6 +1849,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q63";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q148";
@@ -1627,6 +1866,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q64";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1642,6 +1885,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q65";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q150";
@@ -1655,6 +1902,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q66";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1670,6 +1921,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q67";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q152";
@@ -1684,6 +1939,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q68";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q153";
@@ -1697,6 +1956,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q69";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1720,6 +1983,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q71";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado71()
@@ -1729,6 +1996,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q72";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1744,6 +2015,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q73";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q157";
@@ -1757,6 +2032,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q74";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1772,6 +2051,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q75";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q159";
@@ -1785,6 +2068,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q76";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1800,6 +2087,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q77";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q161";
@@ -1814,6 +2105,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q78";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q162";
@@ -1827,6 +2122,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q79";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1852,6 +2151,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q81";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado81()
@@ -1861,6 +2164,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q82";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1876,6 +2183,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q83";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q166";
@@ -1889,6 +2200,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q84";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1904,6 +2219,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q85";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q168";
@@ -1917,6 +2236,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q86";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1932,6 +2255,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q87";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q170";
@@ -1946,6 +2273,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q88";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q171";
@@ -1959,6 +2290,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q89";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -1983,6 +2318,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q91";
             }
+            else 
+            {
+                estadoActual = "q182";
+            }
 
         }
         public void ProcesarEstado91()
@@ -1992,6 +2331,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q92";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -2007,6 +2350,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q93";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q175";
@@ -2020,6 +2367,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q94";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -2035,6 +2386,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q95";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q177";
@@ -2048,6 +2403,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q96";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -2063,6 +2422,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q97";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q179";
@@ -2077,6 +2440,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q98";
             }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
+            }
             else
             {
                 estadoActual = "q180";
@@ -2090,6 +2457,10 @@ namespace Compilador.AnalisisLexico
             if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q99";
+            }
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
+                estadoActual = "q182";
             }
             else
             {
@@ -2637,18 +3008,55 @@ namespace Compilador.AnalisisLexico
             continuarAnalisis = false;
 
         }
-
-
-
-        public string GetResultado()
+        private void ProcesarEstado182()
         {
-            return resultado;
+            //ERROR SIMBOLO NO VALIDO
+            falla = "Simbolo no valido";
+            causa = " se recibió el simbolo no reconocido por el lenguaje  " + caracterActual;
+            solucion = "Asegurese que en la posicion esperada  se encuentre un punto .";
+            ReportarErrorLexicoStopper();
         }
+        private void ProcesarEstado183()
+        {
+            //ERROR SIMBOLO NO VALIDO
+            falla = "Simbolo no valido";
+            causa = " se recibió el simbolo no reconocido por el lenguaje  " + caracterActual;
+            solucion = "Asegurese que en la posicion esperada  se encuentre un espacio";
+            ReportarErrorLexicoStopper();
+        }
+        private void FormarComponenteLexicoSimbolo()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_SIMBOLO(numeroLineaActual, posicionInicial, lexema, categoria);
 
+        }
+        private void FormarComponenteLexicoDummy()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_DUMMY(numeroLineaActual, posicionInicial, lexema, categoria);
 
+        }
+        private void FormarComponenteLexicoLiteral()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_LITERAL(numeroLineaActual, posicionInicial, lexema, categoria);
+
+        }
+        private void FormarComponenteLexicoPalabraReservada()
+        {
+            posicionInicial = puntero - lexema.Length;
+            componente = ComponenteLexico.CREAR_PALABRA_RESERVADA(numeroLineaActual, posicionInicial, lexema, categoria);
+
+        }
+        private void ReportarErrorLexicoStopper()
+        {
+            posicionInicial = puntero - lexema.Length;
+            Error error = Error.CREAR_ERROR_LEXICO_STOPPER(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
+            ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
+        }
         private void DevorarEspaciosBlanco()
         {
-            while (" ".Equals(caracterActual) || "\t".Equals(caracterActual))
+            while ("".Equals(caracterActual.Trim()) || " ".Equals(caracterActual))
             {
                 LeerSiguienteCaracter();
             }

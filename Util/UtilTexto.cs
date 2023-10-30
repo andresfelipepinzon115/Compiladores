@@ -411,6 +411,10 @@ namespace Compilador.Util
         {
             return caracter == " ";
         }
+        public static bool EsVacio(string caracter)
+        {
+            return caracter == "";
+        }
         public static bool EsFinArchivo(string caracter)
         {
             return "@EOF@".Equals(caracter);
