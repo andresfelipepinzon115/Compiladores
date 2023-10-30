@@ -1,4 +1,5 @@
 ﻿using Compilador.Cache;
+using Compilador.GestorErrores;
 using Compilador.Util;
 using System;
 using System.Collections.Generic;
@@ -460,8 +461,14 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado92();
                 }
+                else
+                {
+                    ProcesarEstado93();
+                }
             }
-           
+            TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
+            return componente;
+
         }
         public void ProcesarEstado0()
         {
@@ -504,7 +511,7 @@ namespace Compilador.AnalisisLexico
             }
             else
             {
-
+                estadoActual = "q93";
             }
         }
         private void ProcesarEstado1()
@@ -554,6 +561,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsFinLinea(caracterActual))
             {
                 estadoActual = "q92";
+            }
+            else
+            {
+                estadoActual = "q93";
             }
         }
         private void ProcesarEstado2()
@@ -652,6 +663,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q20";
             }
+            else
+            {
+                estadoActual = "q93";
+            }
         }
         private void ProcesarEstado12()
         {
@@ -746,6 +761,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsDigito9(caracterActual))
             {
                 estadoActual = "q30";
+            }
+            else
+            {
+                estadoActual = "q93";
             }
         }
         private void ProcesarEstado22()
@@ -843,6 +862,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q40";
             }
+            else
+            {
+                estadoActual = "q93";
+            }
         }
         private void ProcesarEstado32()
         {
@@ -938,6 +961,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsDigito9(caracterActual))
             {
                 estadoActual = "q50";
+            }
+            else
+            {
+                estadoActual = "q93";
             }
         }
         private void ProcesarEstado42()
@@ -1035,6 +1062,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q60";
             }
+            else
+            {
+                estadoActual = "q93";
+            }
         }
         private void ProcesarEstado52()
         {
@@ -1129,6 +1160,10 @@ namespace Compilador.AnalisisLexico
             else if (UtilTexto.EsDigito9(caracterActual))
             {
                 estadoActual = "q70";
+            }
+            else
+            {
+                estadoActual = "q93";
             }
         }
         private void ProcesarEstado62()
@@ -1226,6 +1261,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q80";
             }
+            else
+            {
+                estadoActual = "q93";
+            }
         }
         private void ProcesarEstado72()
         {
@@ -1321,6 +1360,10 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q90";
             }
+            else
+            {
+                estadoActual = "q93";
+            }
         }
         private void ProcesarEstado82()
         {
@@ -1380,13 +1423,21 @@ namespace Compilador.AnalisisLexico
         {
             categoria = CategoriaGramatical.FIN_ARCHIVO;
             lexema = "@EOF@";
-            //FormarComponenteLexicoLiteral();
+            FormarComponenteLexicoLiteral();
             continuarAnalisis = false;
         }
         private void ProcesarEstado92()
         {
             CargarNuevaLinea();
             Resetear();
+        }
+        private void ProcesarEstado93()
+        {
+            //ERROR SIMBOLO NO VALIDO
+            falla = "Simbolo no valido";
+            causa = " se recibió el simbolo no reconocido por el lenguaje  " + caracterActual;
+            solucion = "Asegurese que en la posicion esperada  se encuentre un numero entero que vaya de 1 a 9";
+            ReportarErrorLexicoStopper();
         }
         private void FormarComponenteLexicoSimbolo()
         {
@@ -1406,11 +1457,10 @@ namespace Compilador.AnalisisLexico
             componente = ComponenteLexico.CREAR_LITERAL(numeroLineaActual, posicionInicial, lexema, categoria);
 
         }
-        private void ReportarErrorLexicoRecuperable()
+        private void FormarComponenteLexicoPalabraReservada()
         {
             posicionInicial = puntero - lexema.Length;
-            Error error = Error.CREAR_ERROR_LEXICO_RECUPERABLE(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
-            ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
+            componente = ComponenteLexico.CREAR_PALABRA_RESERVADA(numeroLineaActual, posicionInicial, lexema, categoria);
 
         }
         private void ReportarErrorLexicoStopper()
@@ -1418,7 +1468,6 @@ namespace Compilador.AnalisisLexico
             posicionInicial = puntero - lexema.Length;
             Error error = Error.CREAR_ERROR_LEXICO_STOPPER(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
             ManejadorErrores.ObtenerManejadorErrores().ReportarError(error);
-
         }
         private void DevorarEspaciosBlanco()
         {

@@ -7,17 +7,36 @@ using System.Threading.Tasks;
 
 namespace Compilador.TablaComponentes
 {
-    internal class TablaSimbolos
+    public class TablasPalabrasReservadas
     {
         private Dictionary<string, List<ComponenteLexico>> tabla = new Dictionary<string, List<ComponenteLexico>>();
+        private Dictionary<string, ComponenteLexico> palabrasReservadas = new Dictionary<string, ComponenteLexico>();
+
+        public TablasPalabrasReservadas()
+        {
+            LlenarPalabrasReservadas();
+        }
+
+        private void LlenarPalabrasReservadas()
+        {
+           
+        }
         public void Limpiar()
         {
             tabla.Clear();
         }
 
+        public void ComprobarPalbraReservada(ComponenteLexico componente)
+        {
+            if (componente != null && palabrasReservadas.ContainsKey(componente.Lexema))
+            {
+                componente.Categoria = palabrasReservadas[componente.Lexema].Categoria;
+                componente.Tipo = TipoComponente.PALABRA_RESERVADA;
+            }
+        }
         public void Agregar(ComponenteLexico componente)
         {
-            if (componente != null && TipoComponente.SIMBOLO.Equals(componente.Tipo))
+            if (componente != null && TipoComponente.PALABRA_RESERVADA.Equals(componente.Tipo))
             {
                 ObtenerSimbolo(componente.Lexema).Add(componente);
             }
@@ -41,5 +60,4 @@ namespace Compilador.TablaComponentes
             return listaRetorno;
         }
     }
-
 }

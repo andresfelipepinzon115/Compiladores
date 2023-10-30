@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Compilador.TablaComponentes
 {
-    internal class TablaSimbolos
+    public class TablaDummy
     {
         private Dictionary<string, List<ComponenteLexico>> tabla = new Dictionary<string, List<ComponenteLexico>>();
         public void Limpiar()
@@ -17,7 +17,7 @@ namespace Compilador.TablaComponentes
 
         public void Agregar(ComponenteLexico componente)
         {
-            if (componente != null && TipoComponente.SIMBOLO.Equals(componente.Tipo))
+            if (componente != null && TipoComponente.DUMMY.Equals(componente.Tipo))
             {
                 ObtenerSimbolo(componente.Lexema).Add(componente);
             }
@@ -41,5 +41,4 @@ namespace Compilador.TablaComponentes
             return listaRetorno;
         }
     }
-
 }

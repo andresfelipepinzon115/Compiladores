@@ -2651,22 +2651,7 @@ namespace Compilador.AnalisisLexico
                 LeerSiguienteCaracter();
             }
         }
-        private string FormarComponeneteLexico()
-        {
-            posicionInicial = puntero - lexema.Length;
-            posicionFinal = puntero - 1;
 
-            // Construir una cadena que contenga la información
-            CategoriaGramatical informacion = $"categoria: {categoria}\n";
-            informacion += $"Lexema: {lexema}\n";
-            informacion += $"Numero linea: {numeroLineaActual}\n";
-            informacion += $"Posicion final: {posicionFinal}";
-
-            // Devolver la cadena construida
-            return informacion;
-            Resetear();
-            LeerSiguienteCaracter();
-        }
 
 
     }

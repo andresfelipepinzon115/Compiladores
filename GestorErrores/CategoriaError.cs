@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compilador.TablaComponentes
+namespace Compilador.GestorErrores
 {
-    internal class TablaDummies
+    public enum CategoriaError
     {
+        RECUPERABLE, STOPPER
     }
 }
