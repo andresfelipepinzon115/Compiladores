@@ -570,56 +570,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado2()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraAa;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado3()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraBb;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado4()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraCc;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado5()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraDd;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado6()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraEe;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado7()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraFf;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado8()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraGg;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado9()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraHh;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado10()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraIi;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
 
@@ -671,57 +689,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado12()
         {
-            
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraJj;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado13()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraKk;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado14()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraLl;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado15()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraMm;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado16()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraNn;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado17()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraÑñ;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado18()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraOo;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado19()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraPp;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado20()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraQq;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         } 
         private void ProcesarEstado21()
@@ -771,56 +806,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado22()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraRr;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado23()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraSs;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado24()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraTt;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado25()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraUu;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado26()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraVv;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado27()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraWw;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado28()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraXx;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado29()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraYy;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado30()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraZz;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
 
@@ -871,56 +924,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado32()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraA_TILDE;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado33()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraE_TILDE;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado34()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraI_TILDE;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado35()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraO_TILDE;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado36()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraU_TILDE;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado37()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLetraU_DIERESIS;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado38()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito0;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado39()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito1;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado40()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito2;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
 
@@ -971,56 +1042,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado42()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito3;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado43()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito4;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado44()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito5;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado45()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito6;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado46()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito7;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado47()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito8;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado48()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDiguito9;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado49()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsComa;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado50()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsPuntoYComa;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
 
@@ -1071,56 +1160,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado52()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsPunto;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado53()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDosPuntos;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado54()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsParentesisAbre;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado55()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsParentesisCierra;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado56()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsCorchetesAbre;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado57()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsCorchetesCierra;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado58()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLlavesAbre;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado59()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsLlavesCierra;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado60()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsNumeral;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado61()
@@ -1170,56 +1277,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado62()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsPeso;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado63()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsUmpersand;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado64()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsArroba;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado65()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsSuma;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado66()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsResta;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado67()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsMultiplicacion;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado68()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsDivision;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado69()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsModulo;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado70()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsAsignacion;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
 
@@ -1270,56 +1395,74 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado72()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsBarraInversa;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado73()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsOr;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado74()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsComillaDoble;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado75()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsComillaSimple;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado76()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsPotencia;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado77()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsAdmiracionAbre;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado78()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsAdmiracionCierra;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado79()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsPreguntaAbre;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado80()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsPreguntaCierra;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado81()
@@ -1369,66 +1512,83 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado82()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsGionBajo;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado83()
         {
-            
+            Concatenar();
             categoria = CategoriaGramatical.EsMayorQue;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado84()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsMenorQue;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado85()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsAGuionBajo;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado86()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsOGuionBajo;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado87()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsTilde;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado88()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsComillaBajaAbre;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado89()
         {
-          
+            Concatenar();
             categoria = CategoriaGramatical.EsComillaBajaCierra;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado90()
         {
-            
+            Concatenar();
             categoria = CategoriaGramatical.EsEspacioEnBlanco;
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado91()
         {
+            Concatenar();
             categoria = CategoriaGramatical.FIN_ARCHIVO;
             lexema = "@EOF@";
             FormarComponenteLexicoLiteral();
+            EspacioEntreNumeros();
             continuarAnalisis = false;
         }
         private void ProcesarEstado92()
@@ -1481,6 +1641,26 @@ namespace Compilador.AnalisisLexico
             while ("".Equals(caracterActual.Trim()) || " ".Equals(caracterActual))
             {
                 LeerSiguienteCaracter();
+            }
+        }
+        private void ErrorEspacios()
+        {
+            falla = "el caracter que se encuentra no es el esperado";
+            causa = "Se esperaba un solo espacio y por ende se encontro " + caracterActual;
+            solucion = "Corrija los espacios para que esto funcionen ";
+            ReportarErrorLexicoStopper();
+        }
+        private void EspacioEntreNumeros()
+        {
+            LeerSiguienteCaracter();
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                LeerSiguienteCaracter();
+
+            }
+            else if (!UtilTexto.EsFinArchivo(caracterActual) && !UtilTexto.EsFinLinea(caracterActual))
+            {
+                ErrorEspacios();
             }
         }
     }

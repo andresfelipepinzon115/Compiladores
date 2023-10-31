@@ -1,4 +1,5 @@
 ﻿using Compilador.GestorErrores;
+using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,11 @@ namespace Compilador.AnalisisLexico
 
 
         }
+        private void Concatenar()
+        {
+            lexema = lexema + caracterActual;
+
+        }
         private void DevolverPuntero()
         {
             puntero = puntero - 1;
@@ -77,7 +83,7 @@ namespace Compilador.AnalisisLexico
             categoria= CategoriaGramatical.DEFECTO;
             continuarAnalisis = true;
         }
-        public String DevolverSiguienteComponente()
+        public ComponenteLexico DevolverSiguienteComponente()
         {
             Resetear();
 
@@ -418,11 +424,12 @@ namespace Compilador.AnalisisLexico
                 }
                 else if ("q83".Equals(estadoActual))
                 {
-                    ProcesarEOF();
+                    ProcesarEstado83();
                 }
 
             }
-            return lexema;
+            TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
+            return componente;
         }
         
         public void ProcesarEstado0()
@@ -778,18 +785,14 @@ namespace Compilador.AnalisisLexico
                     estadoActual = "q81";
                    
                 }
-                else if (UtilTexto.EsComillaSimple(caracterActual))
+
+                else if (UtilTexto.EsFinArchivo(caracterActual))
                 {
-                    estadoActual = "q67";
-                  
+                    estadoActual = "q82";
                 }
-                else if ("@EOF@".Equals(caracterActual))
+                else if (UtilTexto.EsFinLinea(caracterActual))
                 {
-                    
-                }
-                else if ("@FL@".Equals(caracterActual))
-                {
-                    
+                    estadoActual = "q83";
                 }
 
             }
@@ -1196,8 +1199,22 @@ namespace Compilador.AnalisisLexico
         }
         private void ProcesarEstado81()
         {
+            Concatenar();
             categoria = CategoriaGramatical.EsEspacioEnBlanco;
+            FormarComponenteLexicoLiteral();
             continuarAnalisis = false;
+        }
+        private void ProcesarEstado82()
+        {
+            categoria = CategoriaGramatical.FIN_ARCHIVO;
+            lexema = "@EOF@";
+            //FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
+        }
+        private void ProcesarEstado83()
+        {
+            CargarNuevaLinea();
+            Resetear();
         }
 
 
