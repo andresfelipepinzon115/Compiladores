@@ -1,6 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AnalisisLexico"
   ],
+  "SelectedNode": "\\AnalisisLexico\\AnalizadorLexicoPunto.cs",
   "PreviewInSolutionExplorer": false
 }
