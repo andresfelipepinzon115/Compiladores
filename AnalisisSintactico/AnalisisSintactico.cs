@@ -73,7 +73,6 @@ namespace Compilador.AnalisisSintactico
 
             }
 
-
             private void DevolverSiguienteComponenteLexico()
             {
                 switch (recorrido)
@@ -89,7 +88,6 @@ namespace Compilador.AnalisisSintactico
                         break;
                 }
             }
-
             public string Traducir(int op)
             {
                 string resultado = "";

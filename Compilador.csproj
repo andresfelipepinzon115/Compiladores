@@ -57,6 +57,10 @@
     <Compile Include="AnalisisSintactico\AnalisisSintactico.cs" />
     <Compile Include="Cache\Linea.cs" />
     <Compile Include="Cache\DataCache.cs" />
+    <Compile Include="form.cs" />
+    <Compile Include="form.Designer.cs">
+      <DependentUpon>form.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestorErrores\CategoriaError.cs" />
     <Compile Include="GestorErrores\Error.cs" />
     <Compile Include="GestorErrores\ManejadorErrores.cs" />

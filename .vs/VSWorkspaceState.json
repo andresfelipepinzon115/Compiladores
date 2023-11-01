@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AnalisisSintactico",
+    "\\Util"
   ],
+  "SelectedNode": "\\GestorErrores",
   "PreviewInSolutionExplorer": false
 }
