@@ -106,16 +106,15 @@ namespace Compilador.AnalisisSintactico
                     for (int i = 0; i < total - 1; i++)
                     {
                         CategoriaGramatical caracter = auxiliar.Pop();
-                        resultado += UtilTexto.texto[Convert.ToInt32(caracter)];
+                        resultado += Texto.texto[Convert.ToInt32(caracter)];
                     }
-
                 }
                 if (op == 1)
                 {
                     for (int i = 0; i < total - 1; i++)
                     {
                         CategoriaGramatical caracter = auxiliar.Pop();
-                        resultado += UtilTexto.puntos[Convert.ToInt32(caracter)];
+                        resultado += Punto.puntos[Convert.ToInt32(caracter)];
                         resultado += "  ";
                     }
                 }
@@ -124,7 +123,7 @@ namespace Compilador.AnalisisSintactico
                     for (int i = 0; i < total - 1; i++)
                     {
                         CategoriaGramatical caracter = auxiliar.Pop();
-                        resultado += UtilTexto.numeros[Convert.ToInt32(caracter)];
+                        resultado += Numero.numeros[Convert.ToInt32(caracter)];
                         resultado += " ";
                     }
                 }

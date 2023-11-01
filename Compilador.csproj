@@ -68,6 +68,9 @@
     <Compile Include="TablaComponentes\TablaMaestra.cs" />
     <Compile Include="TablaComponentes\TablaSimbolos.cs" />
     <Compile Include="TablaComponentes\TablasPalabraReservadas.cs" />
+    <Compile Include="Util\Numero.cs" />
+    <Compile Include="Util\Punto.cs" />
+    <Compile Include="Util\Texto.cs" />
     <Compile Include="Util\UtilTexto.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
