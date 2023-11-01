@@ -1,9 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\AnalisisLexico",
-    "\\AnalisisSintatico"
+    ""
   ],
-  "SelectedNode": "\\AnalisisSintatico\\AnalisisSintatico.cs",
   "PreviewInSolutionExplorer": false
 }
