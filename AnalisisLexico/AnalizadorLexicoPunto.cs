@@ -1,4 +1,5 @@
-﻿using Compilador.GestorErrores;
+﻿using Compilador.AnalisisSintactico;
+using Compilador.GestorErrores;
 using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
@@ -12,7 +13,6 @@ namespace Compilador.AnalisisLexico
 {
     internal class AnalizadorLexicoPunto
     {
-
 
         private int numeroLineaActual = 0;
         private string contenidoLineaActual = "";
@@ -31,12 +31,10 @@ namespace Compilador.AnalisisLexico
         private string causa = "";
         private string solucion = "";
 
-        public AnalizadorLexicoPunto(StreamWriter textOut)
-        {
-            this.textOut = textOut;
+        public AnalizadorLexicoPunto()
+        {   
             CargarNuevaLinea();
         }
-
         private void CargarNuevaLinea()
         {
             if ("@EOF@".Equals(contenidoLineaActual))
@@ -46,7 +44,6 @@ namespace Compilador.AnalisisLexico
                 numeroLineaActual = Cache.DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
             }
-
         }
         private void LeerSiguienteCaracter()
         {
@@ -62,9 +59,7 @@ namespace Compilador.AnalisisLexico
             {
                 caracterActual = contenidoLineaActual.Substring(puntero - 1, 1);
                 puntero = puntero + 1;
-
             }
-
 
         }
         private void Concatenar()
@@ -74,7 +69,6 @@ namespace Compilador.AnalisisLexico
         private void DevolverPuntero()
         {
             puntero = puntero - 1;
-
         }
         private void Resetear()
         {
@@ -631,7 +625,6 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado136();
                 }
-
                 else if ("q138".Equals(estadoActual))
                 {
                     ProcesarEstado138();

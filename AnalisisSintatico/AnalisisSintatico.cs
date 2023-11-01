@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compilador
+namespace Compilador.AnalisisSintatico
 {
-    internal class AnalisisSintatico
+    public class AnalisisSintatico
     {
         {
         private AnalixadorLexico AnaLex = new AnalixadorLexico();
@@ -17,6 +17,7 @@ namespace Compilador
         private string solucion = "";
         private Stack<double> pila = new Stack<double>();
         private StringBuilder TrazaDepuracion = new StringBuilder();
+        
 
 
         public void Analizar(bool depurar)

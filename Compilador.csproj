@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,14 +54,9 @@
     <Compile Include="AnalisisLexico\CategoriaGramatical.cs" />
     <Compile Include="AnalisisLexico\TipoComponente.cs" />
     <Compile Include="AnalisisLexico\ComponenteLexico.cs" />
+    <Compile Include="AnalisisSintactico\AnalisisSintactico.cs" />
     <Compile Include="Cache\Linea.cs" />
     <Compile Include="Cache\DataCache.cs" />
-    <Compile Include="frmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPrincipal.Designer.cs">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="GestorErrores\CategoriaError.cs" />
     <Compile Include="GestorErrores\Error.cs" />
     <Compile Include="GestorErrores\ManejadorErrores.cs" />
@@ -73,9 +69,6 @@
     <Compile Include="TablaComponentes\TablaSimbolos.cs" />
     <Compile Include="TablaComponentes\TablasPalabraReservadas.cs" />
     <Compile Include="Util\UtilTexto.cs" />
-    <EmbeddedResource Include="frmPrincipal.resx">
-      <DependentUpon>frmPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

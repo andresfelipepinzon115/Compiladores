@@ -29,9 +29,9 @@ namespace Compilador.AnalisisLexico
         private string causa = "";
         private string solucion = "";
 
-        public AnalizadorLexico(StreamWriter textOut)
+        public AnalizadorLexico()
         {
-            this.textOut = textOut;
+            
             CargarNuevaLinea();
         }
         private void CargarNuevaLinea()
