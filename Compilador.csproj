@@ -54,6 +54,7 @@
     <Compile Include="AnalisisLexico\CategoriaGramatical.cs" />
     <Compile Include="AnalisisLexico\TipoComponente.cs" />
     <Compile Include="AnalisisLexico\ComponenteLexico.cs" />
+    <Compile Include="AnalisisSintactico\AnalisisSintactico.cs" />
     <Compile Include="Cache\Linea.cs" />
     <Compile Include="Cache\DataCache.cs" />
     <Compile Include="frmPrincipal.cs">
@@ -73,6 +74,9 @@
     <Compile Include="TablaComponentes\TablaMaestra.cs" />
     <Compile Include="TablaComponentes\TablaSimbolos.cs" />
     <Compile Include="TablaComponentes\TablasPalabraReservadas.cs" />
+    <Compile Include="Util\Numero.cs" />
+    <Compile Include="Util\Punto.cs" />
+    <Compile Include="Util\Texto.cs" />
     <Compile Include="Util\UtilTexto.cs" />
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
@@ -86,6 +90,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="AnalisisSintactico\Abrir bloc de notas.onetoc2" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,12 +100,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TablaComponentes\Abrir bloc de notas.onetoc2" />
+    <None Include="Util\Abrir bloc de notas.onetoc2" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="diagrmasPuntoTextoNumero\" />
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>

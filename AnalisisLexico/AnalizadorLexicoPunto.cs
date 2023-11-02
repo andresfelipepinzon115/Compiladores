@@ -2,17 +2,12 @@
 using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Compilador.AnalisisLexico
 {
     internal class AnalizadorLexicoPunto
     {
-
 
         private int numeroLineaActual = 0;
         private string contenidoLineaActual = "";
@@ -31,12 +26,10 @@ namespace Compilador.AnalisisLexico
         private string causa = "";
         private string solucion = "";
 
-        public AnalizadorLexicoPunto(StreamWriter textOut)
+        public AnalizadorLexicoPunto()
         {
-            this.textOut = textOut;
             CargarNuevaLinea();
         }
-
         private void CargarNuevaLinea()
         {
             if ("@EOF@".Equals(contenidoLineaActual))
@@ -46,7 +39,6 @@ namespace Compilador.AnalisisLexico
                 numeroLineaActual = Cache.DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
             }
-
         }
         private void LeerSiguienteCaracter()
         {
@@ -62,9 +54,7 @@ namespace Compilador.AnalisisLexico
             {
                 caracterActual = contenidoLineaActual.Substring(puntero - 1, 1);
                 puntero = puntero + 1;
-
             }
-
 
         }
         private void Concatenar()
@@ -74,7 +64,6 @@ namespace Compilador.AnalisisLexico
         private void DevolverPuntero()
         {
             puntero = puntero - 1;
-
         }
         private void Resetear()
         {
@@ -631,7 +620,6 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado136();
                 }
-
                 else if ("q138".Equals(estadoActual))
                 {
                     ProcesarEstado138();
@@ -664,7 +652,6 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado145();
                 }
-
                 else if ("q147".Equals(estadoActual))
                 {
                     ProcesarEstado147();
@@ -697,7 +684,6 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado154();
                 }
-
                 else if ("q156".Equals(estadoActual))
                 {
                     ProcesarEstado156();
@@ -730,7 +716,6 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado163();
                 }
-
                 else if ("q165".Equals(estadoActual))
                 {
                     ProcesarEstado165();
@@ -763,7 +748,6 @@ namespace Compilador.AnalisisLexico
                 {
                     ProcesarEstado172();
                 }
-
                 else if ("q174".Equals(estadoActual))
                 {
                     ProcesarEstado174();
@@ -992,7 +976,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q182";
             }
-            
+
         }
         public void ProcesarEstado11()
         {
@@ -1002,13 +986,14 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q12";
             }
-            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual)) { 
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
                 estadoActual = "q182";
             }
             else
             {
                 estadoActual = "q102";
-            } 
+            }
 
         }
         public void ProcesarEstado12()
@@ -1139,11 +1124,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado19()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsEspacioEnBlanco;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado20()
         {
@@ -1153,7 +1135,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q21";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1305,11 +1287,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado29()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsEspacioEnBlanco;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado30()
         {
@@ -1319,7 +1298,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q31";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1471,11 +1450,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado39()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsAsignacion;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado40()
         {
@@ -1485,7 +1461,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q41";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1637,11 +1613,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado49()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsNumeral;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado50()
         {
@@ -1651,7 +1624,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q51";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1803,11 +1776,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado59()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsPuntoYComa;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado60()
         {
@@ -1817,7 +1787,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q61";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1969,11 +1939,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado69()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito2;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado70()
         {
@@ -1983,7 +1950,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q71";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -2135,11 +2102,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado79()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraZz;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
 
 
@@ -2151,7 +2115,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q81";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -2303,11 +2267,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado89()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraQq;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
 
         public void ProcesarEstado90()
@@ -2318,7 +2279,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q91";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -2470,11 +2431,8 @@ namespace Compilador.AnalisisLexico
         }
         public void ProcesarEstado99()
         {
-            Concatenar();
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraIi;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         private void ProcesarEstado100()
         {
@@ -2489,524 +2447,374 @@ namespace Compilador.AnalisisLexico
             Resetear();
         }
 
-
-
         public void ProcesarEstado102()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsGionBajo;
-            continuarAnalisis = false; 
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado103()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsMayorQue;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado104()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsMenorQue;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado105()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsAGuionBajo;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado106()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsOGuionBajo;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado107()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsTilde;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado108()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsComillaBajaAbre;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado109()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsComillaBajaCierra;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado111()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsBarraInversa;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado112()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsOr;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado113()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsComillaDoble;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado114()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsComillaSimple;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado115()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsPotencia;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado116()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsAdmiracionAbre;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado117()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsAdmiracionCierra;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado118()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsPreguntaAbre;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado119()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsPreguntaCierra;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado120()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsPeso;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado121()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsUmpersand;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado122()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsArroba;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado123()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsSuma;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado124()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsResta;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado125()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsMultiplicacion;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado126()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDivision;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado127()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsModulo;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado129()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsPunto;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado130()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDosPuntos;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado131()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsParentesisAbre;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado132()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsParentesisCierra;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado133()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsCorchetesAbre;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado134()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsCorchetesCierra;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado135()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLlavesAbre;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado136()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLlavesCierra;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado138()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito3;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado139()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito4;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado140()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito5;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado141()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito6;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado142()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito7;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado143()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito8;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado144()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito9;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado145()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsComa;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
-
-
         public void ProcesarEstado147()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraA_TILDE;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado148()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraE_TILDE;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado149()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraI_TILDE;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado150()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraO_TILDE;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado151()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraU_TILDE;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado152()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraU_DIERESIS;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado153()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito0;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado154()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsDiguito1;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
 
         public void ProcesarEstado156()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraRr;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado157()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraSs;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado158()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraTt;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado159()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraUu;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado160()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraVv;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado161()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraWw;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado162()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraXx;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado163()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraYy;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado165()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraJj;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
 
         public void ProcesarEstado166()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraKk;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado167()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraLl;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado168()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraMm;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado169()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraNn;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado170()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraÑñ;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado171()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraOo;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado172()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraPp;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
 
         public void ProcesarEstado174()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraAa;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado175()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraBb;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
 
         public void ProcesarEstado176()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraCc;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado177()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraDd;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado178()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraEe;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado179()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraFf;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado180()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraGg;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         public void ProcesarEstado181()
         {
-            DevolverPuntero();
             categoria = CategoriaGramatical.EsLetraHh;
-            continuarAnalisis = false;
-
+            FormarComponenteLexicoSimboloPunto();
         }
         private void ProcesarEstado182()
         {
@@ -3023,6 +2831,13 @@ namespace Compilador.AnalisisLexico
             causa = " se recibió el simbolo no reconocido por el lenguaje  " + caracterActual;
             solucion = "Asegurese que en la posicion esperada  se encuentre un espacio";
             ReportarErrorLexicoStopper();
+        }
+        private void FormarComponenteLexicoSimboloPunto()
+        {
+            Concatenar();
+            DevolverPuntero();
+            FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
         }
         private void FormarComponenteLexicoSimbolo()
         {
@@ -3062,10 +2877,7 @@ namespace Compilador.AnalisisLexico
             }
         }
 
-
-
     }
 
 }
-
 
