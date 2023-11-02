@@ -16,7 +16,7 @@ namespace Compilador
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 form = new Form1();
+            frmPrincipal form = new frmPrincipal();
             Application.Run(form);
         }
     }

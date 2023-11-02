@@ -8,7 +8,6 @@ namespace Compilador.Util
 {
     public class UtilTexto
     {
-
         public static bool EsLetraAa(string caracter)
         {
             return caracter == "A" || caracter == "a";
@@ -428,5 +427,5 @@ namespace Compilador.Util
 
 }
 
-
+    
 

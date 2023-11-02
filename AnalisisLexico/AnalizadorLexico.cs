@@ -2,11 +2,7 @@
 using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Compilador.AnalisisLexico
 {
@@ -31,7 +27,7 @@ namespace Compilador.AnalisisLexico
 
         public AnalizadorLexico()
         {
-            
+
             CargarNuevaLinea();
         }
         private void CargarNuevaLinea()
@@ -73,7 +69,7 @@ namespace Compilador.AnalisisLexico
             estadoActual = "q0";
             lexema = "";
             caracterActual = "";
-            categoria= CategoriaGramatical.DEFECTO;
+            categoria = CategoriaGramatical.DEFECTO;
             continuarAnalisis = true;
         }
         public ComponenteLexico DevolverSiguienteComponente()
@@ -428,7 +424,7 @@ namespace Compilador.AnalisisLexico
             TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
             return componente;
         }
-        
+
         public void ProcesarEstado0()
         {
             DevorarEspaciosBlanco();
@@ -684,75 +680,75 @@ namespace Compilador.AnalisisLexico
                 }
                 else if (UtilTexto.EsAsignacion(caracterActual))
                 {
-                    estadoActual = "q63";                 
+                    estadoActual = "q63";
                 }
                 else if (UtilTexto.EsBarraInversa(caracterActual))
                 {
-                    estadoActual = "q64";              
+                    estadoActual = "q64";
                 }
                 else if (UtilTexto.EsOr(caracterActual))
                 {
-                    estadoActual = "q65";                
+                    estadoActual = "q65";
                 }
                 else if (UtilTexto.EsComillaDoble(caracterActual))
                 {
-                    estadoActual = "q66";                  
+                    estadoActual = "q66";
                 }
                 else if (UtilTexto.EsComillaSimple(caracterActual))
                 {
-                    estadoActual = "q67";                  
+                    estadoActual = "q67";
                 }
                 else if (UtilTexto.EsPotencia(caracterActual))
                 {
-                    estadoActual = "q68";                   
+                    estadoActual = "q68";
                 }
                 else if (UtilTexto.EsAdmiracionAbre(caracterActual))
                 {
-                    estadoActual = "q69";                    
+                    estadoActual = "q69";
                 }
                 else if (UtilTexto.EsAdmiracionCierra(caracterActual))
                 {
-                    estadoActual = "q70";                   
+                    estadoActual = "q70";
                 }
                 else if (UtilTexto.EsPreguntaAbre(caracterActual))
                 {
-                    estadoActual = "q71";                  
+                    estadoActual = "q71";
                 }
                 else if (UtilTexto.EsPreguntaCierra(caracterActual))
                 {
-                    estadoActual = "q72";                    
+                    estadoActual = "q72";
                 }
                 else if (UtilTexto.EsGuionBajo(caracterActual))
                 {
-                    estadoActual = "q73";                    
+                    estadoActual = "q73";
                 }
                 else if (UtilTexto.EsMayorQue(caracterActual))
                 {
-                    estadoActual = "q74";                   
+                    estadoActual = "q74";
                 }
                 else if (UtilTexto.EsMenorQue(caracterActual))
                 {
-                    estadoActual = "q75";                    
+                    estadoActual = "q75";
                 }
                 else if (UtilTexto.EsAGuionBajo(caracterActual))
                 {
-                    estadoActual = "q76";                    
+                    estadoActual = "q76";
                 }
                 else if (UtilTexto.EsOGuionBajo(caracterActual))
                 {
-                    estadoActual = "q77";                    
+                    estadoActual = "q77";
                 }
                 else if (UtilTexto.EsTilde(caracterActual))
                 {
-                    estadoActual = "q78";                  
+                    estadoActual = "q78";
                 }
                 else if (UtilTexto.EsComillaBajaAbre(caracterActual))
                 {
-                    estadoActual = "q79";      
+                    estadoActual = "q79";
                 }
                 else if (UtilTexto.EsComillaBajaCierra(caracterActual))
                 {
-                    estadoActual = "q80";    
+                    estadoActual = "q80";
                 }
                 else if (UtilTexto.EsEspacioEnBlanco(caracterActual))
                 {

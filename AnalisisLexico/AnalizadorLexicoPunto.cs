@@ -1,13 +1,8 @@
-﻿using Compilador.AnalisisSintactico;
-using Compilador.GestorErrores;
+﻿using Compilador.GestorErrores;
 using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Compilador.AnalisisLexico
 {
@@ -32,7 +27,7 @@ namespace Compilador.AnalisisLexico
         private string solucion = "";
 
         public AnalizadorLexicoPunto()
-        {   
+        {
             CargarNuevaLinea();
         }
         private void CargarNuevaLinea()
@@ -981,7 +976,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q182";
             }
-            
+
         }
         public void ProcesarEstado11()
         {
@@ -991,13 +986,14 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q12";
             }
-            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual)) { 
+            else if (!UtilTexto.EsPunto(caracterActual) && !UtilTexto.EsVacio(caracterActual))
+            {
                 estadoActual = "q182";
             }
             else
             {
                 estadoActual = "q102";
-            } 
+            }
 
         }
         public void ProcesarEstado12()
@@ -1139,7 +1135,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q21";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1302,7 +1298,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q31";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1465,7 +1461,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q41";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1628,7 +1624,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q51";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1778,8 +1774,8 @@ namespace Compilador.AnalisisLexico
             }
 
         }
-        public void ProcesarEstado59() 
-        { 
+        public void ProcesarEstado59()
+        {
             categoria = CategoriaGramatical.EsPuntoYComa;
             FormarComponenteLexicoSimboloPunto();
         }
@@ -1791,7 +1787,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q61";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -1954,7 +1950,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q71";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -2119,7 +2115,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q81";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -2283,7 +2279,7 @@ namespace Compilador.AnalisisLexico
             {
                 estadoActual = "q91";
             }
-            else 
+            else
             {
                 estadoActual = "q182";
             }
@@ -2884,5 +2880,4 @@ namespace Compilador.AnalisisLexico
     }
 
 }
-
 
