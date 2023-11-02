@@ -118,6 +118,7 @@
     <Content Include="obj\Debug\Compilador.exe" />
     <Content Include="obj\Debug\Compilador.pdb" />
     <Content Include="obj\Release\Compilador.csproj.FileListAbsolute.txt" />
+    <Content Include="UpgradeLog.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
