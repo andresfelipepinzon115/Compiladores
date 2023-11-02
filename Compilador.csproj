@@ -133,6 +133,7 @@
     <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="bin\Debug\Compilador.exe" />
     <Content Include="bin\Debug\Compilador.pdb" />
     <Content Include="bin\Debug\TextOut.txt" />
