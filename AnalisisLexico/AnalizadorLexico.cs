@@ -1,4 +1,5 @@
 ﻿using Compilador.GestorErrores;
+using Compilador.TablaComponentes;
 using Compilador.Util;
 using System;
 using System.Collections.Generic;
@@ -28,12 +29,11 @@ namespace Compilador.AnalisisLexico
         private string causa = "";
         private string solucion = "";
 
-        public AnalizadorLexico(StreamWriter textOut)
+        public AnalizadorLexico()
         {
-            this.textOut = textOut;
+            
             CargarNuevaLinea();
         }
-
         private void CargarNuevaLinea()
         {
             if ("@EOF@".Equals(contenidoLineaActual))
@@ -43,7 +43,6 @@ namespace Compilador.AnalisisLexico
                 numeroLineaActual = Cache.DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
             }
-
         }
         private void LeerSiguienteCaracter()
         {
@@ -59,15 +58,15 @@ namespace Compilador.AnalisisLexico
             {
                 caracterActual = contenidoLineaActual.Substring(puntero - 1, 1);
                 puntero = puntero + 1;
-
             }
-
-
+        }
+        private void Concatenar()
+        {
+            lexema = lexema + caracterActual;
         }
         private void DevolverPuntero()
         {
             puntero = puntero - 1;
-
         }
         private void Resetear()
         {
@@ -77,7 +76,7 @@ namespace Compilador.AnalisisLexico
             categoria= CategoriaGramatical.DEFECTO;
             continuarAnalisis = true;
         }
-        public String DevolverSiguienteComponente()
+        public ComponenteLexico DevolverSiguienteComponente()
         {
             Resetear();
 
@@ -418,11 +417,16 @@ namespace Compilador.AnalisisLexico
                 }
                 else if ("q83".Equals(estadoActual))
                 {
-                    ProcesarEOF();
+                    ProcesarEstado83();
+                }
+                else
+                {
+                    ProcesarEstado84();
                 }
 
             }
-            return lexema;
+            TablaMaestra.ObtenerTablaMaestra().Agregar(componente);
+            return componente;
         }
         
         public void ProcesarEstado0()
@@ -433,7 +437,6 @@ namespace Compilador.AnalisisLexico
                 if (UtilTexto.EsLetraAa(caracterActual))
                 {
                     estadoActual = "q1";
-
                 }
                 else if (UtilTexto.EsLetraBb(caracterActual))
                 {
@@ -634,22 +637,18 @@ namespace Compilador.AnalisisLexico
                 else if (UtilTexto.EsCorchetesCierra(caracterActual))
                 {
                     estadoActual = "q51";
-
                 }
                 else if (UtilTexto.EsLlavesAbre(caracterActual))
                 {
                     estadoActual = "q52";
-
                 }
                 else if (UtilTexto.EsLlavesCierra(caracterActual))
                 {
                     estadoActual = "q53";
-
                 }
                 else if (UtilTexto.EsNumeral(caracterActual))
                 {
                     estadoActual = "q54";
-
                 }
                 else if (UtilTexto.EsPeso(caracterActual))
                 {
@@ -685,111 +684,91 @@ namespace Compilador.AnalisisLexico
                 }
                 else if (UtilTexto.EsAsignacion(caracterActual))
                 {
-                    estadoActual = "q63";
-                  
+                    estadoActual = "q63";                 
                 }
                 else if (UtilTexto.EsBarraInversa(caracterActual))
                 {
-                    estadoActual = "q64";
-              
+                    estadoActual = "q64";              
                 }
                 else if (UtilTexto.EsOr(caracterActual))
                 {
-                    estadoActual = "q65";
-                 
+                    estadoActual = "q65";                
                 }
                 else if (UtilTexto.EsComillaDoble(caracterActual))
                 {
-                    estadoActual = "q66";
-                  
+                    estadoActual = "q66";                  
                 }
                 else if (UtilTexto.EsComillaSimple(caracterActual))
                 {
-                    estadoActual = "q67";
-                   
+                    estadoActual = "q67";                  
                 }
                 else if (UtilTexto.EsPotencia(caracterActual))
                 {
-                    estadoActual = "q68";
-                    
+                    estadoActual = "q68";                   
                 }
                 else if (UtilTexto.EsAdmiracionAbre(caracterActual))
                 {
-                    estadoActual = "q69";
-                    
+                    estadoActual = "q69";                    
                 }
                 else if (UtilTexto.EsAdmiracionCierra(caracterActual))
                 {
-                    estadoActual = "q70";
-                   
+                    estadoActual = "q70";                   
                 }
                 else if (UtilTexto.EsPreguntaAbre(caracterActual))
                 {
-                    estadoActual = "q71";
-                   
+                    estadoActual = "q71";                  
                 }
                 else if (UtilTexto.EsPreguntaCierra(caracterActual))
                 {
-                    estadoActual = "q72";
-                    
+                    estadoActual = "q72";                    
                 }
                 else if (UtilTexto.EsGuionBajo(caracterActual))
                 {
-                    estadoActual = "q73";
-                    
+                    estadoActual = "q73";                    
                 }
                 else if (UtilTexto.EsMayorQue(caracterActual))
                 {
-                    estadoActual = "q74";
-                    
+                    estadoActual = "q74";                   
                 }
                 else if (UtilTexto.EsMenorQue(caracterActual))
                 {
-                    estadoActual = "q75";
-                    
+                    estadoActual = "q75";                    
                 }
                 else if (UtilTexto.EsAGuionBajo(caracterActual))
                 {
-                    estadoActual = "q76";
-                    
+                    estadoActual = "q76";                    
                 }
                 else if (UtilTexto.EsOGuionBajo(caracterActual))
                 {
-                    estadoActual = "q77";
-                    
+                    estadoActual = "q77";                    
                 }
                 else if (UtilTexto.EsTilde(caracterActual))
                 {
-                    estadoActual = "q78";
-                   
+                    estadoActual = "q78";                  
                 }
                 else if (UtilTexto.EsComillaBajaAbre(caracterActual))
                 {
-                    estadoActual = "q79";
-                    
+                    estadoActual = "q79";      
                 }
                 else if (UtilTexto.EsComillaBajaCierra(caracterActual))
                 {
-                    estadoActual = "q80";
-                   
+                    estadoActual = "q80";    
                 }
                 else if (UtilTexto.EsEspacioEnBlanco(caracterActual))
                 {
                     estadoActual = "q81";
-                   
                 }
-                else if (UtilTexto.EsComillaSimple(caracterActual))
+                else if (UtilTexto.EsFinArchivo(caracterActual))
                 {
-                    estadoActual = "q67";
-                  
+                    estadoActual = "q82";
                 }
-                else if ("@EOF@".Equals(caracterActual))
+                else if (UtilTexto.EsFinLinea(caracterActual))
                 {
-                    
+                    estadoActual = "q83";
                 }
-                else if ("@FL@".Equals(caracterActual))
+                else
                 {
-                    
+                    estadoActual = "q84";
                 }
 
             }
@@ -797,410 +776,435 @@ namespace Compilador.AnalisisLexico
         private void ProcesarEstado1()
         {
             categoria = CategoriaGramatical.EsLetraAa;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado2()
         {
             categoria = CategoriaGramatical.EsLetraBb;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado3()
         {
             categoria = CategoriaGramatical.EsLetraCc;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado4()
         {
             categoria = CategoriaGramatical.EsLetraDd;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado5()
         {
             categoria = CategoriaGramatical.EsLetraEe;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado6()
         {
             categoria = CategoriaGramatical.EsLetraFf;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado7()
         {
             categoria = CategoriaGramatical.EsLetraGg;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado8()
         {
             categoria = CategoriaGramatical.EsLetraHh;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado9()
         {
             categoria = CategoriaGramatical.EsLetraIi;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado10()
         {
             categoria = CategoriaGramatical.EsLetraJj;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado11()
         {
             categoria = CategoriaGramatical.EsLetraKk;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado12()
         {
             categoria = CategoriaGramatical.EsLetraLl;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado13()
         {
             categoria = CategoriaGramatical.EsLetraMm;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado14()
         {
             categoria = CategoriaGramatical.EsLetraNn;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado15()
         {
             categoria = CategoriaGramatical.EsLetraÑñ;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado16()
         {
             categoria = CategoriaGramatical.EsLetraOo;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado17()
         {
             categoria = CategoriaGramatical.EsLetraPp;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado18()
         {
             categoria = CategoriaGramatical.EsLetraQq;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado19()
         {
             categoria = CategoriaGramatical.EsLetraRr;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado20()
         {
             categoria = CategoriaGramatical.EsLetraSs;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado21()
         {
             categoria = CategoriaGramatical.EsLetraTt;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado22()
         {
             categoria = CategoriaGramatical.EsLetraUu;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado23()
         {
             categoria = CategoriaGramatical.EsLetraVv;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado24()
         {
             categoria = CategoriaGramatical.EsLetraWw;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado25()
         {
             categoria = CategoriaGramatical.EsLetraXx;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado26()
         {
             categoria = CategoriaGramatical.EsLetraYy;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado27()
         {
             categoria = CategoriaGramatical.EsLetraZz;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado28()
         {
             categoria = CategoriaGramatical.EsLetraA_TILDE;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado29()
         {
             categoria = CategoriaGramatical.EsLetraE_TILDE;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado30()
         {
             categoria = CategoriaGramatical.EsLetraI_TILDE;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado31()
         {
             categoria = CategoriaGramatical.EsLetraO_TILDE;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado32()
         {
             categoria = CategoriaGramatical.EsLetraU_TILDE;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado33()
         {
             categoria = CategoriaGramatical.EsLetraU_DIERESIS;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado34()
         {
             categoria = CategoriaGramatical.EsDiguito0;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado35()
         {
             categoria = CategoriaGramatical.EsDiguito1;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado36()
         {
             categoria = CategoriaGramatical.EsDiguito2;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado37()
         {
             categoria = CategoriaGramatical.EsDiguito3;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado38()
         {
             categoria = CategoriaGramatical.EsDiguito4;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado39()
         {
             categoria = CategoriaGramatical.EsDiguito5;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado40()
         {
             categoria = CategoriaGramatical.EsDiguito6;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado41()
         {
             categoria = CategoriaGramatical.EsDiguito7;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado42()
         {
             categoria = CategoriaGramatical.EsDiguito8;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado43()
         {
             categoria = CategoriaGramatical.EsDiguito9;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado44()
         {
             categoria = CategoriaGramatical.EsComa;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado45()
         {
             categoria = CategoriaGramatical.EsPuntoYComa;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado46()
         {
             categoria = CategoriaGramatical.EsPunto;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado47()
         {
             categoria = CategoriaGramatical.EsDosPuntos;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado48()
         {
             categoria = CategoriaGramatical.EsParentesisAbre;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado49()
         {
             categoria = CategoriaGramatical.EsParentesisCierra;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado50()
         {
             categoria = CategoriaGramatical.EsCorchetesAbre;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado51()
         {
             categoria = CategoriaGramatical.EsCorchetesCierra;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado52()
         {
             categoria = CategoriaGramatical.EsLlavesAbre;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado53()
         {
             categoria = CategoriaGramatical.EsLlavesCierra;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado54()
         {
             categoria = CategoriaGramatical.EsNumeral;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado55()
         {
             categoria = CategoriaGramatical.EsPeso;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado56()
         {
             categoria = CategoriaGramatical.EsUmpersand;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado57()
         {
             categoria = CategoriaGramatical.EsArroba;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado58()
         {
             categoria = CategoriaGramatical.EsSuma;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado59()
         {
             categoria = CategoriaGramatical.EsResta;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado60()
         {
             categoria = CategoriaGramatical.EsMultiplicacion;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado61()
         {
             categoria = CategoriaGramatical.EsDivision;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado62()
         {
             categoria = CategoriaGramatical.EsModulo;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado63()
         {
             categoria = CategoriaGramatical.EsAsignacion;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado64()
         {
             categoria = CategoriaGramatical.EsBarraInversa;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado65()
         {
             categoria = CategoriaGramatical.EsOr;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado66()
         {
             categoria = CategoriaGramatical.EsComillaDoble;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado67()
         {
             categoria = CategoriaGramatical.EsComillaSimple;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado68()
         {
             categoria = CategoriaGramatical.EsPotencia;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado69()
         {
             categoria = CategoriaGramatical.EsAdmiracionAbre;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado70()
         {
             categoria = CategoriaGramatical.EsAdmiracionCierra;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado71()
         {
             categoria = CategoriaGramatical.EsPreguntaAbre;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado72()
         {
             categoria = CategoriaGramatical.EsPreguntaCierra;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado73()
         {
             categoria = CategoriaGramatical.EsGionBajo;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado74()
         {
             categoria = CategoriaGramatical.EsMayorQue;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado75()
         {
             categoria = CategoriaGramatical.EsMenorQue;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado76()
         {
             categoria = CategoriaGramatical.EsAGuionBajo;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado77()
         {
             categoria = CategoriaGramatical.EsOGuionBajo;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado78()
         {
             categoria = CategoriaGramatical.EsTilde;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado79()
         {
             categoria = CategoriaGramatical.EsComillaBajaAbre;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado80()
         {
             categoria = CategoriaGramatical.EsComillaBajaCierra;
-            continuarAnalisis = false;
+            FormarComponenteLexicoTexto();
         }
         private void ProcesarEstado81()
         {
             categoria = CategoriaGramatical.EsEspacioEnBlanco;
+            FormarComponenteLexicoTexto();
+        }
+        private void ProcesarEstado82()
+        {
+            categoria = CategoriaGramatical.FIN_ARCHIVO;
+            lexema = "@EOF@";
+            //FormarComponenteLexicoLiteral();
             continuarAnalisis = false;
         }
+        private void ProcesarEstado83()
+        {
+            CargarNuevaLinea();
+            Resetear();
+        }
+        private void FormarComponenteLexicoTexto()
+        {
+            Concatenar();
+            FormarComponenteLexicoLiteral();
+            continuarAnalisis = false;
 
-
+        }
+        private void ProcesarEstado84()
+        {
+            //ERROR SIMBOLO NO VALIDO
+            falla = "Simbolo no valido";
+            causa = " se recibió el simbolo no reconocido por el lenguaje  " + caracterActual;
+            solucion = "de todos los simbolo en el lenguaje este no se encuentra intente nuevamente";
+            ReportarErrorLexicoStopper();
+        }
         private void FormarComponenteLexicoSimbolo()
         {
             posicionInicial = puntero - lexema.Length;
