@@ -72,7 +72,7 @@ namespace CompiladoExtraClase
         private void InitializeUI()
         {
 
-            Text = "Compiladores";
+            
             Size = new System.Drawing.Size(1100, 600);
             this.BackColor = System.Drawing.Color.Gray;
 
@@ -165,7 +165,7 @@ namespace CompiladoExtraClase
 
                 textInputRadioButton = new RadioButton
                 {
-                    Text = "Text Input",
+                    Text = "Texto",
                     Location = new System.Drawing.Point(0, 10),
                     Width = 150,// Establece el ancho a 150 píxeles
                     Height = 30
@@ -174,7 +174,7 @@ namespace CompiladoExtraClase
 
                 pointInputRadioButton = new RadioButton
                 {
-                    Text = "Point Input",
+                    Text = "Puntos",
                     Location = new System.Drawing.Point(0, 30),
                     Width = 150,// Establece el ancho a 150 píxeles
                     Height = 30
@@ -183,7 +183,7 @@ namespace CompiladoExtraClase
 
                 numberInputRadioButton = new RadioButton
                 {
-                    Text = "Number Input",
+                    Text = "Numeros",
                     Location = new System.Drawing.Point(0, 50),
                     Width = 150,// Establece el ancho a 150 píxeles
                     Height = 30
@@ -201,7 +201,7 @@ namespace CompiladoExtraClase
                 textOutputRadioButton.CheckedChanged += OptionOutputRadioButton_CheckedChanged;
                 textOutputRadioButton = new RadioButton
                 {
-                    Text = "Text Output",
+                    Text = "Texto",
                     Location = new System.Drawing.Point(0, 10),
                     Margin = new System.Windows.Forms.Padding(15)
                 };
@@ -209,7 +209,7 @@ namespace CompiladoExtraClase
 
                 pointOutputRadioButton = new RadioButton
                 {
-                    Text = "Point Output",
+                    Text = "Puntos",
                     Location = new System.Drawing.Point(0, 30),
                     Margin = new System.Windows.Forms.Padding(15)
                 };
@@ -217,7 +217,7 @@ namespace CompiladoExtraClase
 
                 numberOutputRadioButton = new RadioButton
                 {
-                    Text = "Number Output",
+                    Text = "Numero",
                     Location = new System.Drawing.Point(0, 50),
                     Margin = new System.Windows.Forms.Padding(15)
             };
@@ -291,139 +291,9 @@ namespace CompiladoExtraClase
                 contentPanel.Controls.Add(radioButtonOutputPanel);
                 contentPanel.Controls.Add(radioButtonInputPanel);
             }
-            else if (tabName.Equals("Tablas"))
-            {
-                var tabPage = new TabPage(tabName);
+           
+            
 
-
-                tabControl.TabPages.Add(tabPage);
-                tabPage.Controls.Add(dataGridView1);
-
-                var contentPanel = new Panel
-                {
-                    Dock = DockStyle.Fill,
-                    Padding = new Padding(10)
-                };
-
-                tabPage.Controls.Add(contentPanel);
-
-                tabControl.SelectedIndexChanged += TabControl_SelectedIndexChanged;
-                tabla.Columns.Add("Identificador");
-                tabla.Columns.Add("Categoria");
-                tabla.Columns.Add("Lexema");
-                tabla.Columns.Add("Numero Linea");
-                tabla.Columns.Add("Posicion Inicial");
-                tabla.Columns.Add("Posicion Final");
-
-                dataGridView1.DataSource = tabla;
-
-            }
-            else if (tabName.Equals("Errores"))
-            {
-                var tabPage = new TabPage(tabName);
-
-
-                tabControl.TabPages.Add(tabPage);
-                tabPage.Controls.Add(dataGridView2);
-
-                var contentPanel = new Panel
-                {
-                    Dock = DockStyle.Fill,
-                    Padding = new Padding(10)
-                };
-
-                tabPage.Controls.Add(contentPanel);
-
-                tabControl.SelectedIndexChanged += TabControl_SelectedIndexChanged;
-                errores.Columns.Add("Identificador");
-                errores.Columns.Add("Numero Linea");
-                errores.Columns.Add("Posicion Inicial");
-                errores.Columns.Add("Posicion Final");
-                errores.Columns.Add("Lexema");
-                errores.Columns.Add("Falla");
-                errores.Columns.Add("Causa");
-                errores.Columns.Add("Solucion");
-                errores.Columns.Add("Tipo");
-                errores.Columns.Add("Categoria");
-
-
-
-                dataGridView2.DataSource = errores;
-
-            }
-
-        }
-        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Obtén la pestaña seleccionada
-            TabPage selectedTab = tabControl.SelectedTab;
-
-
-            // Verifica si la pestaña seleccionada es la de "Tablas"
-            if (selectedTab.Text == "Tablas")
-            {
-                if (dataGridView1.Rows.Count > 0)
-                {
-                    dataGridView1.DataSource = null;
-                    dataGridView1.Rows.Clear();
-                    tabla.Rows.Clear();
-                    dataGridView1.DataSource = tabla;
-                }
-
-
-                tablaMaestra = TablaMaestra.ObtenerTablaMaestra();
-                listaRetorno = tablaMaestra.ObtenerTodosSimbolos(TipoComponente.LITERAL);
-
-                var i = 0;
-
-                foreach (var item in listaRetorno)
-                {
-                    tabla.Rows.Add(i, item.Categoria, item.Lexema, item.NumeroLinea, item.PosicionInicial, item.PosicionFinal);
-                    i++;
-                }
-
-
-            }
-            else if (selectedTab.Text == "Errores")
-            {
-                if (dataGridView2.Rows.Count > 0)
-                {
-                    dataGridView2.DataSource = null;
-                    dataGridView2.Rows.Clear();
-                    errores.Rows.Clear();
-                    dataGridView2.DataSource = errores;
-                }
-                var i = 0;
-
-                manejadorErrores = ManejadorErrores.ObtenerManejadorDeErrores();
-                listaErrores = manejadorErrores.ObtenerErrores(TipoError.LEXICO);
-
-
-                foreach (var item in listaErrores)
-                {
-                    errores.Rows.Add(i, item.NumeroLinea, item.PosicionInicial, item.PosicionFinal, item.Lexema, item.Falla, item.Causa, item.Solucion, item.Tipo, item.Categoria);
-                    i++;
-                }
-                i = 0;
-
-                listaErrores = manejadorErrores.ObtenerErrores(TipoError.SINTACTICO);
-
-
-                foreach (var item in listaErrores)
-                {
-                    errores.Rows.Add(i, item.NumeroLinea, item.PosicionInicial, item.PosicionFinal, item.Lexema, item.Falla, item.Causa, item.Solucion, item.Tipo, item.Categoria);
-                    i++;
-                }
-                i = 0;
-                listaErrores = manejadorErrores.ObtenerErrores(TipoError.SEMANTICO);
-
-
-                foreach (var item in listaErrores)
-                {
-                    errores.Rows.Add(i, item.NumeroLinea, item.PosicionInicial, item.PosicionFinal, item.Lexema, item.Falla, item.Causa, item.Solucion, item.Tipo, item.Categoria);
-                    i++;
-                }
-            }
         }
 
         private void ManualButton_click(object sender, EventArgs e)
@@ -596,10 +466,7 @@ namespace CompiladoExtraClase
             DataStorage.ManualInputData = null;
         }
 
-        private void VScrollBar_Scroll(object sender, ScrollEventArgs e)
-        {
-            entryTextBox.ScrollToCaret();
-        }
+   
     }
 
 

@@ -7,3 +7,12 @@ C:\Users\Helmer\Downloads\Code_translator_compiladores-main\Code_translator_comp
 C:\Users\Helmer\Downloads\Code_translator_compiladores-main\Code_translator_compiladores-main\Translator\Translator\obj\Debug\CompiladoExtraClase.csproj.CoreCompileInputs.cache
 C:\Users\Helmer\Downloads\Code_translator_compiladores-main\Code_translator_compiladores-main\Translator\Translator\obj\Debug\Translator.exe
 C:\Users\Helmer\Downloads\Code_translator_compiladores-main\Code_translator_compiladores-main\Translator\Translator\obj\Debug\Translator.pdb
+C:\Users\Helmer\source\repos\Compiladores\Translator\bin\Debug\Translator.exe.config
+C:\Users\Helmer\source\repos\Compiladores\Translator\bin\Debug\Translator.exe
+C:\Users\Helmer\source\repos\Compiladores\Translator\bin\Debug\Translator.pdb
+C:\Users\Helmer\source\repos\Compiladores\Translator\obj\Debug\CompiladoExtraClase.csproj.AssemblyReference.cache
+C:\Users\Helmer\source\repos\Compiladores\Translator\obj\Debug\Translator.Properties.Resources.resources
+C:\Users\Helmer\source\repos\Compiladores\Translator\obj\Debug\CompiladoExtraClase.csproj.GenerateResource.cache
+C:\Users\Helmer\source\repos\Compiladores\Translator\obj\Debug\CompiladoExtraClase.csproj.CoreCompileInputs.cache
+C:\Users\Helmer\source\repos\Compiladores\Translator\obj\Debug\Translator.exe
+C:\Users\Helmer\source\repos\Compiladores\Translator\obj\Debug\Translator.pdb

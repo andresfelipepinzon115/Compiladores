@@ -13,7 +13,7 @@ namespace CompiladoExtraClase.TablaComponentes
         private static TablaMaestra TABLA_MAESTRA = new TablaMaestra();
         private TablaSimbolos tablaSimbolos = new TablaSimbolos();
         private TablaLiterales tablaLiterales = new TablaLiterales();
-        private TablaNumeros tablaNumeros = new TablaNumeros();
+        private TablaNumeroReservados tablaNumeros = new TablaNumeroReservados();
         private TablaDummies tablaDummies = new TablaDummies();
 
         public static TablaMaestra ObtenerTablaMaestra()

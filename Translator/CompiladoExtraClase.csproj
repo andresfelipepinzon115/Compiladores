@@ -68,7 +68,7 @@
     <Compile Include="TablaComponentes\TablaDummies.cs" />
     <Compile Include="TablaComponentes\TablaLiterales.cs" />
     <Compile Include="TablaComponentes\TablaMaestra.cs" />
-    <Compile Include="TablaComponentes\TablaNumeros.cs" />
+    <Compile Include="TablaComponentes\TablaNumeroReservados.cs" />
     <Compile Include="TablaComponentes\TablaSimbolos.cs" />
     <Compile Include="Util\Numero.cs" />
     <Compile Include="Util\Puntos.cs" />
@@ -96,8 +96,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GestorErrores\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

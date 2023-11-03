@@ -8,12 +8,12 @@ using CompiladoExtraClase.LexicalAnalysis;
 namespace CompiladoExtraClase.TablaComponentes
 
 {
-    public class TablaNumeros
+    public class TablaNumeroReservados
     {
         private Dictionary<string, List<ComponenteLexico>> tabla = new Dictionary<string, List<ComponenteLexico>>();
         private Dictionary<string, ComponenteLexico> numeros = new Dictionary<string, ComponenteLexico>();
 
-        public TablaNumeros()
+        public TablaNumeroReservados()
         {
             LlenarNumeros();
         }
