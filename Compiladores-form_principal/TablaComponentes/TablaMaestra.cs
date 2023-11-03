@@ -12,7 +12,7 @@ namespace Compilador.TablaComponentes
         private static TablaMaestra TABLA_MAESTRA = new TablaMaestra();
         private TablaSimbolos tablaSimbolos = new TablaSimbolos();
         private TablaLiteral tablaLiterales = new TablaLiteral();
-        private TablasPalabrasReservadas tablasPalabrasReservadas = new TablasPalabrasReservadas();
+        private TablasNumeroResevados tablasNumeroResevados = new TablasNumeroResevados();
         private TablaDummy tablaDummy = new TablaDummy();
 
         public static TablaMaestra ObtenerTablaMaestra()
@@ -23,16 +23,16 @@ namespace Compilador.TablaComponentes
         {
             tablaSimbolos.Limpiar();
             tablaLiterales.Limpiar();
-            tablasPalabrasReservadas.Limpiar();
+            tablasNumeroResevados.Limpiar();
             tablaDummy.Limpiar();
         }
 
         public void Agregar(ComponenteLexico componente)
         {
-            tablasPalabrasReservadas.ComprobarPalbraReservada(componente);
+            tablasNumeroResevados.ComprobarNumero(componente);
             tablaSimbolos.Agregar(componente);
             tablaLiterales.Agregar(componente);
-            tablasPalabrasReservadas.Agregar(componente);
+            tablasNumeroResevados.Agregar(componente);
             tablaDummy.Agregar(componente);
         }
 
@@ -44,8 +44,8 @@ namespace Compilador.TablaComponentes
                     return tablaSimbolos.ObtenerSimbolo(lexema);
                 case TipoComponente.LITERAL:
                     return tablaLiterales.ObtenerSimbolo(lexema);
-                case TipoComponente.PALABRA_RESERVADA:
-                    return tablasPalabrasReservadas.ObtenerSimbolo(lexema);
+                case TipoComponente.NUMERO:
+                    return tablasNumeroResevados.ObtenerSimbolo(lexema);
                 case TipoComponente.DUMMY:
                     return tablaDummy.ObtenerSimbolo(lexema);
                 default:
@@ -60,8 +60,8 @@ namespace Compilador.TablaComponentes
                     return tablaSimbolos.ObtenerTodosSimbolos();
                 case TipoComponente.LITERAL:
                     return tablaLiterales.ObtenerTodosSimbolos();
-                case TipoComponente.PALABRA_RESERVADA:
-                    return tablasPalabrasReservadas.ObtenerTodosSimbolos();
+                case TipoComponente.NUMERO:
+                    return tablasNumeroResevados.ObtenerTodosSimbolos();
                 case TipoComponente.DUMMY:
                     return tablaDummy.ObtenerTodosSimbolos();
                 default:

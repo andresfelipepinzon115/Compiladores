@@ -8,115 +8,135 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using Compilador.AnalisisLexico;
-
-
+using Compilador.AnalisisSintactico;
+using Compilador.Cache;
+using Compilador.TablaComponentes;
 
 namespace Compilador
 {
+
     public partial class frmPrincipal : Form
     {
+        public AnalisisSintacticoTraduccion gramatica;
+        public int inputControl = 0;
+        public int outputControl = 0;
         public frmPrincipal()
         {
             InitializeComponent();
         }
-
-        private void ManualInputButton_Click_Click(object sender, EventArgs e)
-        {
-            string inputText = ManualInputTextBox.Text;
-            string translatedText = TranslateText(inputText);
-            OutputTextBox.Text = translatedText;
-        }
-
-        //TEXTO A
-        private string TranslateText(string inputText)
-        {
-            string inputLanguage = GetSelectedLanguage(groupBox1);
-            string outputLanguage = GetSelectedLanguage(groupBox3);
-
-
-            if (inputLanguage == "TextIn" && outputLanguage == "TextOut")
-            {
-                return inputText;
-            }
-            else if (inputLanguage == "TextIn" && outputLanguage == "NumOut")
-            {
-                return "Lógica de traducción no implementada";
-            }
-            else if (inputLanguage == "TextIn" && outputLanguage == "PuntOut")
-            {
-                return "Lógica de traducción no implementada";
-            }
-            //NUMERO A
-            else if (inputLanguage == "NumIn" && outputLanguage == "NumOut")
-            {
-                return inputText;
-            }
-            else if (inputLanguage == "NumIn" && outputLanguage == "TextOut")
-            {
-                return "Lógica de traducción no implementada";
-            }
-            else if (inputLanguage == "NumIn" && outputLanguage == "PuntOut")
-            {
-                return "Lógica de traducción no implementada";
-            }
-
-            //PUNTO A
-            else if (inputLanguage == "PuntIn" && outputLanguage == "PuntOut")
-            {
-                return inputText;
-            }
-            else if (inputLanguage == "PuntIn" && outputLanguage == "TextOut")
-            {
-                return "Lógica de traducción no implementada";
-            }
-            else if (inputLanguage == "PuntIn" && outputLanguage == "NumOut")
-            {
-                return "Lógica de traducción no implementada";
-            }
-
-            return "Lógica de traducción no implementada";
-        }
-
-        private string GetSelectedLanguage(GroupBox groupBox)
-        {
-            foreach (RadioButton radioButton in groupBox.Controls)
-            {
-                if (radioButton.Checked)
-                {
-                    return radioButton.Name;
-                }
-            }
-            return string.Empty;
-        }
+        
         private void LoadFromFileButton_Click_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Archivos de código (*.cs;*.cpp;*.py)|*.cs;*.cpp;*.py|Documentos Word (*.doc;*.docx)|*.doc;*.docx|Todos los archivos (*.*)|*.*";
+            ingresoArchivo();
+            DataCache.Limpiar();
+        }
+        private void ManualInputButton_Click_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        
+        //TEXTO A
+        private void OptionRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+            if (sender is RadioButton radioButton && radioButton.Checked)
+            {
+
+
+                if (radioButton == TextIn)
+                {
+                    inputControl = 0;
+                }
+
+                if (radioButton == NumIn)
+                {
+                    inputControl = 1;
+                }
+
+                if (radioButton == PuntIn)
+                {
+                    inputControl = 2;
+                }
+
+
+            }
+
+        }
+        private void OptionOutputRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+            if (sender is RadioButton radioButton && radioButton.Checked)
+            {
+
+
+
+                if (radioButton == TextOut)
+                {
+                    outputControl = 0;
+                }
+
+                if (radioButton == NumOut)
+                {
+                    outputControl = 1;
+                }
+
+                if (radioButton == PuntOut)
+                {
+                    outputControl = 2;
+                }
+
+            }
+
+        }
+
+        private void ingresoArchivo()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Archivos de Texto|*.txt;*.html;*.xml;*.json;*.htm"
+            };
+            TablaMaestra.ObtenerTablaMaestra().Limpiar();
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string fileName = openFileDialog.FileName;
+                string filePath = openFileDialog.FileName;
+                List<string> fileLines = File.ReadAllLines(filePath).ToList();
+                mostrarEntrada(fileLines);
+
                 try
                 {
-                    string fileExtension = Path.GetExtension(fileName).ToLower();
-
-                    if (fileExtension == ".txt" || fileExtension == ".cs" || fileExtension == ".cpp" || fileExtension == ".py")
-                    {
-                        OutputTextBox.Text = File.ReadAllText(fileName);
-                    }
-                    else
-                    {
-                        OutputTextBox.Text = "Tipo de archivo no compatible.";
-                    }
+                    gramatica = new AnalisisSintacticoTraduccion(0);
+                    gramatica.Analizar();
+                    SalidaTexto(gramatica.PasoPuntosTextoNumeros(1));
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al cargar el archivo: " + ex.Message);
+                    SalidaTexto(ex.Message);
+                    OutputTextBox.AppendText(Environment.NewLine);
+                    OutputTextBox.AppendText(ex.Message);
                 }
             }
         }
-          
+
+
+
+        private void mostrarEntrada(List<string> fileLines)
+        {
+            ManualInputTextBox.Clear();
+            for (int lineNumber = 1; lineNumber <= fileLines.Count; lineNumber++)
+            {
+                ManualInputTextBox.AppendText($"{lineNumber}: {fileLines[lineNumber - 1]}{Environment.NewLine}");
+            }
+
+        }
+        private void SalidaTexto(string result)
+        {
+            OutputTextBox.Clear();
+            OutputTextBox.AppendText(result);
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -137,5 +157,37 @@ namespace Compilador
 
         }
 
+        private void TextIn_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OutputTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManualInputTextBox_TextChanged(object sender, EventArgs e)
+        {
+     
+
+        }
+
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
+
 }

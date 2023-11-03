@@ -24,7 +24,7 @@ namespace Compilador.TablaComponentes
         }
         public List<ComponenteLexico> ObtenerSimbolo(string lexema)
         {
-            if (tabla.ContainsKey(lexema))
+            if (!tabla.ContainsKey(lexema))
             {
                 tabla.Add(lexema, new List<ComponenteLexico>());
             }

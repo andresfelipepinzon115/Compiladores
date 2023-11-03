@@ -31,7 +31,22 @@ namespace Compilador.AnalisisLexico
         public string Lexema { get => lexema; set => lexema = value; }
         public CategoriaGramatical Categoria { get => categoria; set => categoria = value; }
         public TipoComponente Tipo { get => tipo; set => tipo = value; }
-
+        public static ComponenteLexico Crear(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria, TipoComponente tipo)
+        {
+            switch (tipo)
+            {
+                case TipoComponente.LITERAL:
+                    return CREAR_LITERAL(numeroLinea, posicionInicial, lexema, categoria);
+                case TipoComponente.NUMERO:
+                    return CREAR_LITERAL(numeroLinea, posicionInicial, lexema, categoria);
+                case TipoComponente.SIMBOLO:
+                    return CREAR_SIMBOLO(numeroLinea, posicionInicial, lexema, categoria);
+                case TipoComponente.DUMMY:
+                    return CREAR_DUMMY(numeroLinea, posicionInicial, lexema, categoria);
+                default:
+                    throw new Exception("Tipo de componente Inválido");
+            }
+        }
         public static ComponenteLexico CREAR_SIMBOLO(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
         {
             return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.SIMBOLO);
@@ -44,9 +59,9 @@ namespace Compilador.AnalisisLexico
         {
             return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.DUMMY);
         }
-        public static ComponenteLexico CREAR_PALABRA_RESERVADA(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        public static ComponenteLexico CREAR_NUMERO_RESERVADO(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
         {
-            return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.PALABRA_RESERVADA);
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, categoria, TipoComponente.NUMERO);
         }
 
 

@@ -54,7 +54,7 @@
     <Compile Include="AnalisisLexico\CategoriaGramatical.cs" />
     <Compile Include="AnalisisLexico\TipoComponente.cs" />
     <Compile Include="AnalisisLexico\ComponenteLexico.cs" />
-    <Compile Include="AnalisisSintactico\AnalisisSintactico.cs" />
+    <Compile Include="AnalisisSintactico\AnalisisSintacticoTraduccion.cs" />
     <Compile Include="Cache\Linea.cs" />
     <Compile Include="Cache\DataCache.cs" />
     <Compile Include="frmPrincipal.cs">
@@ -73,7 +73,7 @@
     <Compile Include="TablaComponentes\TablaLiteral.cs" />
     <Compile Include="TablaComponentes\TablaMaestra.cs" />
     <Compile Include="TablaComponentes\TablaSimbolos.cs" />
-    <Compile Include="TablaComponentes\TablasPalabraReservadas.cs" />
+    <Compile Include="TablaComponentes\TablasNumeroReservados.cs" />
     <Compile Include="Util\Numero.cs" />
     <Compile Include="Util\Punto.cs" />
     <Compile Include="Util\Texto.cs" />

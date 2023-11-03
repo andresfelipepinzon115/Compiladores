@@ -17,7 +17,6 @@ namespace Compilador.AnalisisLexico
         public CategoriaGramatical categoria;
         private string lexema = "";
         private int posicionInicial = 0;
-        private int posicionFinal = 0;
         private bool continuarAnalisis = false;
         private String resultado = "";
         private StreamWriter textOut;
@@ -2860,7 +2859,7 @@ namespace Compilador.AnalisisLexico
         private void FormarComponenteLexicoPalabraReservada()
         {
             posicionInicial = puntero - lexema.Length;
-            componente = ComponenteLexico.CREAR_PALABRA_RESERVADA(numeroLineaActual, posicionInicial, lexema, categoria);
+            componente = ComponenteLexico.CREAR_NUMERO_RESERVADO(numeroLineaActual, posicionInicial, lexema, categoria);
 
         }
         private void ReportarErrorLexicoStopper()

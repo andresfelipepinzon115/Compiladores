@@ -55,6 +55,8 @@
             this.PuntOut = new System.Windows.Forms.RadioButton();
             this.NumOut = new System.Windows.Forms.RadioButton();
             this.TextOut = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -63,14 +65,14 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuArchivo,
             this.mnuAyuda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1254, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(1053, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,19 +82,19 @@
             this.smnuConfiguración,
             this.smnuSalir});
             this.mnuArchivo.Name = "mnuArchivo";
-            this.mnuArchivo.Size = new System.Drawing.Size(88, 29);
+            this.mnuArchivo.Size = new System.Drawing.Size(60, 22);
             this.mnuArchivo.Text = "Archivo";
             // 
             // smnuConfiguración
             // 
             this.smnuConfiguración.Name = "smnuConfiguración";
-            this.smnuConfiguración.Size = new System.Drawing.Size(225, 34);
+            this.smnuConfiguración.Size = new System.Drawing.Size(150, 22);
             this.smnuConfiguración.Text = "Configuración";
             // 
             // smnuSalir
             // 
             this.smnuSalir.Name = "smnuSalir";
-            this.smnuSalir.Size = new System.Drawing.Size(225, 34);
+            this.smnuSalir.Size = new System.Drawing.Size(150, 22);
             this.smnuSalir.Text = "Salir";
             // 
             // mnuAyuda
@@ -100,13 +102,13 @@
             this.mnuAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.smnuAcercaDe});
             this.mnuAyuda.Name = "mnuAyuda";
-            this.mnuAyuda.Size = new System.Drawing.Size(79, 29);
+            this.mnuAyuda.Size = new System.Drawing.Size(53, 22);
             this.mnuAyuda.Text = "Ayuda";
             // 
             // smnuAcercaDe
             // 
             this.smnuAcercaDe.Name = "smnuAcercaDe";
-            this.smnuAcercaDe.Size = new System.Drawing.Size(191, 34);
+            this.smnuAcercaDe.Size = new System.Drawing.Size(126, 22);
             this.smnuAcercaDe.Text = "Acerca de";
             // 
             // toolStrip1
@@ -119,9 +121,9 @@
             this.toolStripSeparator,
             this.toolStripSeparator1,
             this.btnAyuda});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 33);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1254, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(1053, 31);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -131,7 +133,7 @@
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(34, 28);
+            this.btnNuevo.Size = new System.Drawing.Size(28, 28);
             this.btnNuevo.Text = "&Nuevo";
             // 
             // btnAbrir
@@ -140,7 +142,7 @@
             this.btnAbrir.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrir.Image")));
             this.btnAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAbrir.Name = "btnAbrir";
-            this.btnAbrir.Size = new System.Drawing.Size(34, 28);
+            this.btnAbrir.Size = new System.Drawing.Size(28, 28);
             this.btnAbrir.Text = "&Abrir";
             // 
             // btnGuardar
@@ -149,18 +151,18 @@
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(34, 28);
+            this.btnGuardar.Size = new System.Drawing.Size(28, 28);
             this.btnGuardar.Text = "&Guardar";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // btnAyuda
             // 
@@ -168,14 +170,15 @@
             this.btnAyuda.Image = ((System.Drawing.Image)(resources.GetObject("btnAyuda.Image")));
             this.btnAyuda.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(34, 28);
+            this.btnAyuda.Size = new System.Drawing.Size(28, 28);
             this.btnAyuda.Text = "Ay&uda";
             // 
             // ManualInputButton_Click
             // 
-            this.ManualInputButton_Click.Location = new System.Drawing.Point(128, 587);
+            this.ManualInputButton_Click.Location = new System.Drawing.Point(178, 452);
+            this.ManualInputButton_Click.Margin = new System.Windows.Forms.Padding(2);
             this.ManualInputButton_Click.Name = "ManualInputButton_Click";
-            this.ManualInputButton_Click.Size = new System.Drawing.Size(358, 55);
+            this.ManualInputButton_Click.Size = new System.Drawing.Size(239, 36);
             this.ManualInputButton_Click.TabIndex = 3;
             this.ManualInputButton_Click.Text = "INGRESO MANUAL";
             this.ManualInputButton_Click.UseVisualStyleBackColor = true;
@@ -183,9 +186,10 @@
             // 
             // LoadFromFileButton_Click
             // 
-            this.LoadFromFileButton_Click.Location = new System.Drawing.Point(863, 299);
+            this.LoadFromFileButton_Click.Location = new System.Drawing.Point(770, 184);
+            this.LoadFromFileButton_Click.Margin = new System.Windows.Forms.Padding(2);
             this.LoadFromFileButton_Click.Name = "LoadFromFileButton_Click";
-            this.LoadFromFileButton_Click.Size = new System.Drawing.Size(317, 55);
+            this.LoadFromFileButton_Click.Size = new System.Drawing.Size(211, 36);
             this.LoadFromFileButton_Click.TabIndex = 4;
             this.LoadFromFileButton_Click.Text = "CARGA DESDE ARCHIVOS";
             this.LoadFromFileButton_Click.UseVisualStyleBackColor = true;
@@ -196,36 +200,43 @@
             this.inicio.AutoSize = true;
             this.inicio.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.inicio.Font = new System.Drawing.Font("MS Reference Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inicio.Location = new System.Drawing.Point(31, 100);
+            this.inicio.Location = new System.Drawing.Point(21, 65);
+            this.inicio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.inicio.Name = "inicio";
-            this.inicio.Size = new System.Drawing.Size(230, 69);
+            this.inicio.Size = new System.Drawing.Size(159, 46);
             this.inicio.TabIndex = 6;
             this.inicio.Text = "INICIO";
             // 
             // ManualInputTextBox
             // 
-            this.ManualInputTextBox.Location = new System.Drawing.Point(72, 361);
+            this.ManualInputTextBox.Location = new System.Drawing.Point(335, 242);
+            this.ManualInputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ManualInputTextBox.Multiline = true;
             this.ManualInputTextBox.Name = "ManualInputTextBox";
-            this.ManualInputTextBox.Size = new System.Drawing.Size(481, 220);
+            this.ManualInputTextBox.Size = new System.Drawing.Size(322, 176);
             this.ManualInputTextBox.TabIndex = 7;
+            this.ManualInputTextBox.TextChanged += new System.EventHandler(this.ManualInputTextBox_TextChanged);
             // 
             // OutputTextBox
             // 
-            this.OutputTextBox.Location = new System.Drawing.Point(600, 361);
+            this.OutputTextBox.Location = new System.Drawing.Point(726, 242);
+            this.OutputTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.OutputTextBox.Multiline = true;
             this.OutputTextBox.Name = "OutputTextBox";
-            this.OutputTextBox.Size = new System.Drawing.Size(580, 268);
+            this.OutputTextBox.Size = new System.Drawing.Size(299, 176);
             this.OutputTextBox.TabIndex = 8;
+            this.OutputTextBox.TextChanged += new System.EventHandler(this.OutputTextBox_TextChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.PuntIn);
             this.groupBox1.Controls.Add(this.NumIn);
             this.groupBox1.Controls.Add(this.TextIn);
-            this.groupBox1.Location = new System.Drawing.Point(72, 246);
+            this.groupBox1.Location = new System.Drawing.Point(360, 98);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 109);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(171, 71);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione:";
@@ -234,9 +245,10 @@
             // PuntIn
             // 
             this.PuntIn.AutoSize = true;
-            this.PuntIn.Location = new System.Drawing.Point(15, 79);
+            this.PuntIn.Location = new System.Drawing.Point(10, 51);
+            this.PuntIn.Margin = new System.Windows.Forms.Padding(2);
             this.PuntIn.Name = "PuntIn";
-            this.PuntIn.Size = new System.Drawing.Size(88, 24);
+            this.PuntIn.Size = new System.Drawing.Size(63, 17);
             this.PuntIn.TabIndex = 21;
             this.PuntIn.Text = "PUNTO";
             this.PuntIn.UseVisualStyleBackColor = true;
@@ -244,9 +256,10 @@
             // NumIn
             // 
             this.NumIn.AutoSize = true;
-            this.NumIn.Location = new System.Drawing.Point(15, 53);
+            this.NumIn.Location = new System.Drawing.Point(10, 34);
+            this.NumIn.Margin = new System.Windows.Forms.Padding(2);
             this.NumIn.Name = "NumIn";
-            this.NumIn.Size = new System.Drawing.Size(105, 24);
+            this.NumIn.Size = new System.Drawing.Size(73, 17);
             this.NumIn.TabIndex = 20;
             this.NumIn.Text = "NUMERO";
             this.NumIn.UseVisualStyleBackColor = true;
@@ -255,22 +268,26 @@
             // 
             this.TextIn.AutoSize = true;
             this.TextIn.Checked = true;
-            this.TextIn.Location = new System.Drawing.Point(15, 26);
+            this.TextIn.Location = new System.Drawing.Point(10, 17);
+            this.TextIn.Margin = new System.Windows.Forms.Padding(2);
             this.TextIn.Name = "TextIn";
-            this.TextIn.Size = new System.Drawing.Size(86, 24);
+            this.TextIn.Size = new System.Drawing.Size(61, 17);
             this.TextIn.TabIndex = 19;
             this.TextIn.TabStop = true;
             this.TextIn.Text = "TEXTO";
             this.TextIn.UseVisualStyleBackColor = true;
+            this.TextIn.CheckedChanged += new System.EventHandler(this.TextIn_CheckedChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.PuntOut);
             this.groupBox3.Controls.Add(this.NumOut);
             this.groupBox3.Controls.Add(this.TextOut);
-            this.groupBox3.Location = new System.Drawing.Point(600, 246);
+            this.groupBox3.Location = new System.Drawing.Point(574, 98);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(257, 109);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(171, 71);
             this.groupBox3.TabIndex = 24;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Seleccione:";
@@ -278,9 +295,10 @@
             // PuntOut
             // 
             this.PuntOut.AutoSize = true;
-            this.PuntOut.Location = new System.Drawing.Point(15, 79);
+            this.PuntOut.Location = new System.Drawing.Point(10, 51);
+            this.PuntOut.Margin = new System.Windows.Forms.Padding(2);
             this.PuntOut.Name = "PuntOut";
-            this.PuntOut.Size = new System.Drawing.Size(88, 24);
+            this.PuntOut.Size = new System.Drawing.Size(63, 17);
             this.PuntOut.TabIndex = 21;
             this.PuntOut.Text = "PUNTO";
             this.PuntOut.UseVisualStyleBackColor = true;
@@ -288,9 +306,10 @@
             // NumOut
             // 
             this.NumOut.AutoSize = true;
-            this.NumOut.Location = new System.Drawing.Point(15, 53);
+            this.NumOut.Location = new System.Drawing.Point(10, 34);
+            this.NumOut.Margin = new System.Windows.Forms.Padding(2);
             this.NumOut.Name = "NumOut";
-            this.NumOut.Size = new System.Drawing.Size(105, 24);
+            this.NumOut.Size = new System.Drawing.Size(73, 17);
             this.NumOut.TabIndex = 20;
             this.NumOut.Text = "NUMERO";
             this.NumOut.UseVisualStyleBackColor = true;
@@ -299,21 +318,42 @@
             // 
             this.TextOut.AutoSize = true;
             this.TextOut.Checked = true;
-            this.TextOut.Location = new System.Drawing.Point(15, 26);
+            this.TextOut.Location = new System.Drawing.Point(10, 17);
+            this.TextOut.Margin = new System.Windows.Forms.Padding(2);
             this.TextOut.Name = "TextOut";
-            this.TextOut.Size = new System.Drawing.Size(86, 24);
+            this.TextOut.Size = new System.Drawing.Size(61, 17);
             this.TextOut.TabIndex = 19;
             this.TextOut.TabStop = true;
             this.TextOut.Text = "TEXTO";
             this.TextOut.UseVisualStyleBackColor = true;
             this.TextOut.CheckedChanged += new System.EventHandler(this.radioButton6_CheckedChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(29, 242);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(289, 176);
+            this.textBox1.TabIndex = 26;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(70, 217);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(110, 20);
+            this.textBox2.TabIndex = 27;
+            this.textBox2.Text = "datos diguitales";
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1254, 656);
+            this.ClientSize = new System.Drawing.Size(1053, 553);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.OutputTextBox);
@@ -326,6 +366,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPrincipal";
             this.Text = "Compilador";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
@@ -370,6 +411,8 @@
         private System.Windows.Forms.RadioButton PuntOut;
         private System.Windows.Forms.RadioButton NumOut;
         private System.Windows.Forms.RadioButton TextOut;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

@@ -5,21 +5,19 @@ using System.Collections.Generic;
 
 namespace Compilador.AnalisisSintactico
 {
-    public class AnalisisSintactico
+    public class AnalisisSintacticoTraduccion
     {
         int recorrido = 0;
         private AnalizadorLexico lexico = new AnalizadorLexico();
         private AnalizadorLexicoNumero lexicoNumero = new AnalizadorLexicoNumero();
         private AnalizadorLexicoPunto lexicoPunto = new AnalizadorLexicoPunto();
         private ComponenteLexico Componente;
-        private string falla = "";
-        private string causa = "";
-        private string solucion = "";
+
         private string resultado = "";
         private Stack<CategoriaGramatical> translate = new Stack<CategoriaGramatical>();
         private Stack<CategoriaGramatical> auxiliar = new Stack<CategoriaGramatical>();
 
-        public AnalisisSintactico(int recorridoLexico)
+        public AnalisisSintacticoTraduccion(int recorridoLexico)
         {
             recorrido = recorridoLexico;
             switch (recorridoLexico)
@@ -42,7 +40,7 @@ namespace Compilador.AnalisisSintactico
 
             DevolverSiguienteComponenteLexico();
             translate.Push(Componente.Categoria);
-            Entrada();
+            DatosCategoriaGramatical();
             if (ManejadorErrores.ObtenerManejadorErrores().HayErroresAnalisis())
             {
                 resultado = "El proceso de compilación terminó con errores.\r\n";
@@ -58,13 +56,13 @@ namespace Compilador.AnalisisSintactico
 
         }
 
-        public void Entrada()
+        public void DatosCategoriaGramatical()
         {
             if (!Componente.Categoria.Equals(CategoriaGramatical.FIN_ARCHIVO))
             {
                 DevolverSiguienteComponenteLexico();
                 translate.Push(Componente.Categoria);
-                Entrada();
+                DatosCategoriaGramatical();
             }
 
         }
@@ -84,7 +82,7 @@ namespace Compilador.AnalisisSintactico
                     break;
             }
         }
-        public string Traducir(int op)
+        public string PasoPuntosTextoNumeros(int op)
         {
             string resultado = "";
             int total = translate.Count;
