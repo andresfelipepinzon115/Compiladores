@@ -57,7 +57,9 @@
     <Compile Include="AnalisisSintactico\AnalisisSintactico.cs" />
     <Compile Include="Cache\Linea.cs" />
     <Compile Include="Cache\DataCache.cs" />
-    <Compile Include="frmPrincipal.cs" />
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
