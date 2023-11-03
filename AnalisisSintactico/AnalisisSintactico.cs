@@ -11,122 +11,114 @@ namespace Compilador.AnalisisSintactico
 {
     public class AnalisisSintactico
     {
-        int recorrido = 0;
-        private AnalizadorLexico lexico = new AnalizadorLexico();
-        private AnalizadorLexicoNumero lexicoNumero = new AnalizadorLexicoNumero();
-        private AnalizadorLexicoPunto lexicoPunto = new AnalizadorLexicoPunto();
-        private ComponenteLexico Componente;
-        private string falla = "";
-        private string causa = "";
-        private string solucion = "";
-        private string resultado = "";
-        private Stack<CategoriaGramatical> translate = new Stack<CategoriaGramatical>();
-        private Stack<CategoriaGramatical> auxiliar = new Stack<CategoriaGramatical>();
 
-        public AnalisisSintactico(int recorridoLexico)
+        public class AnalizadorSintatico
         {
-            recorrido = recorridoLexico;
-            switch (recorridoLexico)
+            private int language = 0; // Variable que almacena el tipo de lenguaje (0: Texto, 1: Puntos, 2: Números)
+            private ComponenteLexico Componente; // Componente léxico actual
+            private AnalizadorLexico AnalyzerText; // Analizador léxico para texto
+            private AnalizadorLexicoNumero AnalyzerNum; // Analizador léxico para números
+            private AnalizadorLexicoPunto AnalyzerPoint; // Analizador léxico para puntos
+            private string resultado = ""; // Mensaje de resultado
+            private Stack<CategoriaGramatical> translate = new Stack<CategoriaGramatical>(); // Pila para categorías gramaticales
+            private Stack<CategoriaGramatical> auxiliar = new Stack<CategoriaGramatical>(); // Pila auxiliar para traducción
+
+            public AnalizadorSintatico(int lang)
             {
-                case 0:
-                    lexico = new AnalizadorLexico();
-                    break;
-                case 1:
-                    lexicoNumero = new AnalizadorLexicoNumero();
-                    break;
-                case 2:
-                    lexicoPunto = new AnalizadorLexicoPunto();
-                    break;
+                // Constructor que inicializa el analizador sintáctico según el lenguaje seleccionado.
+                language = lang;
+                switch (lang)
+                {
+                    case 0:
+                        AnalyzerText = new AnalizadorLexico();
+                        break;
+                    case 1:
+                        AnalyzerPoint = new AnalizadorLexicoPunto();
+                        break;
+                    case 2:
+                        AnalyzerNum = new AnalizadorLexicoNumero();
+                        break;
+                }
             }
 
-        }
-
-        public void Analizar()
-        {
-
-            DevolverSiguienteComponenteLexico();
-            translate.Push(Componente.Categoria);
-            Entrada();
-            if (ManejadorErrores.ObtenerManejadorErrores().HayErroresAnalisis())
+            public void Analizar()
             {
-                resultado = "El proceso de compilación terminó con errores.\r\n";
-            }
-            else if (!CategoriaGramatical.FIN_ARCHIVO.Equals(Componente.Categoria))
-            {
-                resultado = "Aunque el programa no tiene errores, faltaron componentes por evaluar.\r\n";
-            }
-            else
-            {
-                resultado = "El programa se encuentra bien escrito.\r\n";
+                // Método principal que inicia el análisis.
+                DevolverSiguienteComponenteLexico(); // Obtiene el primer componente léxico
+                translate.Push(Componente.Categoria); // Agrega la categoría del primer componente a la pila
+                Entrada(); // Inicia el análisis sintáctico
+                resultado = ManejarErrores(); // Maneja los errores y obtiene el mensaje de resultado
             }
 
-        }
-
-        public void Entrada()
-        {
-            if (!Componente.Categoria.Equals(CategoriaGramatical.FIN_ARCHIVO))
+            private string ManejarErrores()
             {
-                DevolverSiguienteComponenteLexico();
-                translate.Push(Componente.Categoria);
-                Entrada();
+                // Método que maneja los errores de análisis y devuelve un mensaje de resultado.
+                if (ManejadorErrores.ObtenerManejadorErrores().HayErroresAnalisis())
+                {
+                    return "El proceso de compilación terminó con errores.\r\n";
+                }
+                else if (!CategoriaGramatical.FIN_ARCHIVO.Equals(Componente.Categoria))
+                {
+                    return "Aunque el programa no tiene errores, faltaron componentes por evaluar.\r\n";
+                }
+                else
+                {
+                    return "El programa se encuentra bien escrito.\r\n";
+                }
             }
 
-        }
-
-        private void DevolverSiguienteComponenteLexico()
-        {
-            switch (recorrido)
+            public string Traducir(int op)
             {
-                case 0:
-                    Componente = lexico.DevolverSiguienteComponente();
-                    break;
-                case 1:
-                    Componente = lexicoPunto.DevolverSiguienteComponente();
-                    break;
-                case 2:
-                    Componente = lexicoNumero.DevolverSiguienteComponente();
-                    break;
-            }
-        }
-        public string Traducir(int op)
-        {
-            string resultado = "";
-            int total = translate.Count;
-
-            for (int i = 0; i < total; i++)
+                // Método que traduce las categorías gramaticales al formato seleccionado.
+                Dictionary<int, string[]> traducciones = new Dictionary<int, string[]>
             {
-                auxiliar.Push(translate.Pop());
-            }
+                { 0, Texto.texto }, // Traducción para texto
+                { 1, Punto.puntos }, // Traducción para puntos
+                { 2, Numero.numeros } // Traducción para números
+            };
 
-            if (op == 0)
-            {
+                string resultado = "";
+                int total = translate.Count;
 
                 for (int i = 0; i < total - 1; i++)
                 {
                     CategoriaGramatical caracter = auxiliar.Pop();
-                    resultado += Util.Texto.texto[Convert.ToInt32(caracter)];
+                    resultado += traducciones[op][Convert.ToInt32(caracter)];
+
+                    if (op != 2)
+                        resultado += (op == 1) ? "  " : " ";
                 }
+
+                return resultado;
             }
-            if (op == 1)
+
+            private void DevolverSiguienteComponenteLexico()
             {
-                for (int i = 0; i < total - 1; i++)
+                // Método que obtiene el siguiente componente léxico según el lenguaje.
+                switch (language)
                 {
-                    CategoriaGramatical caracter = auxiliar.Pop();
-                    resultado += Util.Punto.puntos[Convert.ToInt32(caracter)];
-                    resultado += "  ";
-                }
-            }
-            if (op == 2)
-            {
-                for (int i = 0; i < total - 1; i++)
-                {
-                    CategoriaGramatical caracter = auxiliar.Pop();
-                    resultado += Util.Numero.numeros[Convert.ToInt32(caracter)];
-                    resultado += " ";
+                    case 0:
+                        Componente = AnalyzerText.DevolverSiguienteComponente();
+                        break;
+                    case 1:
+                        Componente = AnalyzerPoint.DevolverSiguienteComponente();
+                        break;
+                    case 2:
+                        Componente = AnalyzerNum.DevolverSiguienteComponente();
+                        break;
                 }
             }
 
-            return resultado;
+            private void Entrada()
+            {
+                // Método que representa la regla de la gramática y realiza el análisis.
+                if (!Componente.Categoria.Equals(CategoriaGramatical.FIN_ARCHIVO))
+                {
+                    DevolverSiguienteComponenteLexico();
+                    translate.Push(Componente.Categoria);
+                    Entrada(); // Llamada recursiva para analizar el siguiente componente
+                }
+            }
         }
 
 

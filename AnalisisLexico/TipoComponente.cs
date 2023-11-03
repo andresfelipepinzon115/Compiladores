@@ -8,7 +8,7 @@ namespace Compilador.AnalisisLexico
 {
     public enum TipoComponente
     {
-        SIMBOLO, LITERAL, DUMMY, PALABRA_RESERVADA
+        SIMBOLO, LITERAL, DUMMY, PALABRA_RESERVADA, NUMERO
 
     }
 }
