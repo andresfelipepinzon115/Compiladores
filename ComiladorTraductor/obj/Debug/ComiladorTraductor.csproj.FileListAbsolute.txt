@@ -1,0 +1,9 @@
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\obj\Debug\ComiladorTraductor.csproj.AssemblyReference.cache
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\obj\Debug\ComiladorTraductor.Form1.resources
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\obj\Debug\ComiladorTraductor.csproj.GenerateResource.cache
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\obj\Debug\ComiladorTraductor.csproj.CoreCompileInputs.cache
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\bin\Debug\ComiladorTraductor.exe.config
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\bin\Debug\ComiladorTraductor.exe
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\bin\Debug\ComiladorTraductor.pdb
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\obj\Debug\ComiladorTraductor.exe
+C:\Users\Helmer\source\repos\ComiladorTraductor\ComiladorTraductor\obj\Debug\ComiladorTraductor.pdb
