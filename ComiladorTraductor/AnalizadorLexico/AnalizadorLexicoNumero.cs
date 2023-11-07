@@ -1375,7 +1375,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         }
         private void ProcesarEstado91()
         {
-
+            lexema = "@EOF@";
             categoria = CategoriaGramatical.FIN_ARCHIVO;
             FormarComponenteLexicoLiteral();
             continuarAnalisis = false;
@@ -1383,6 +1383,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         }
         private void ProcesarEstado92()
         {
+            categoria = CategoriaGramatical.FIN_LINEA;
             Resetear();
             CargarNuevaLinea();
 
@@ -1407,8 +1408,21 @@ namespace ComiladorTraductor.AnalizadorLexico
 
         private void FormarComponenteLexicoLiteral()
         {
-            posicionInicial = puntero - lexema.Length;
-            posicionFinal = posicionInicial + lexema.Length;
+            if ("@EOF@".Equals(caracterActual))
+            {
+                posicionInicial = 1;
+                posicionFinal = posicionInicial + 1;
+            }
+            else if ("@FL@".Equals(caracterActual))
+            {
+                posicionInicial = 1;
+                posicionFinal = posicionInicial + (lexema.Length - 4);
+            }
+            else
+            {
+                posicionInicial = puntero - lexema.Length;
+                posicionFinal = posicionInicial + lexema.Length;
+            }
             componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, posicionFinal, lexema, categoria, tipo);
 
         }

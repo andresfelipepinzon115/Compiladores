@@ -3068,11 +3068,13 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado100()
         {
             categoria = CategoriaGramatical.FIN_ARCHIVO;
+            lexema = "@EOF@";
             FormarComponenteLexicoLiteral();
             continuarAnalisis = false;
         }
         private void ProcesarEstado101()
         {
+            lexema = "@FL@";
             Resetear();
             CargarNuevaLinea();
             
@@ -3473,8 +3475,21 @@ namespace ComiladorTraductor.AnalizadorLexico
 
         private void FormarComponenteLexicoLiteral()
         {
-            posicionInicial = puntero - lexema.Length;
-            posicionFinal = posicionInicial + lexema.Length;
+            if ("@EOF@".Equals(caracterActual))
+            {
+                posicionInicial = 1;
+                posicionFinal = posicionInicial + 1;
+            }
+            else if ("@FL@".Equals(caracterActual))
+            {
+                posicionInicial = 1;
+                posicionFinal = posicionInicial +( lexema.Length-4);
+            }
+            else
+            {
+                posicionInicial = puntero - lexema.Length;
+                posicionFinal = posicionInicial + lexema.Length;
+            }
             componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, posicionFinal, lexema, categoria, tipo);
             
 
@@ -3482,7 +3497,8 @@ namespace ComiladorTraductor.AnalizadorLexico
 
         private void ReportarErrorLexicoStopper()
         {
-          
+            posicionInicial = puntero - lexema.Length;
+            posicionFinal = posicionInicial + lexema.Length;
             Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, puntero - lexema.Length, posicionFinal, lexema, falla, causa, solucion);
             ManejadorTodosErrores.ObtenerManejadorDeErrores().ReportarError(error);
         }

@@ -1204,6 +1204,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         }
         private void ProcesarEstado83()
         {
+          
             Resetear();
             CargarNuevaLinea();
             
@@ -1226,8 +1227,18 @@ namespace ComiladorTraductor.AnalizadorLexico
         }
         private void FormarComponenteLexicoLiteral()
         {
-            posicionInicial = puntero - lexema.Length;
-            posicionFinal = posicionInicial + lexema.Length;
+            if ("@EOF@".Equals(caracterActual))
+            {
+                posicionInicial = 1;
+                posicionFinal = posicionInicial + lexema.Length;
+            }
+            else
+            {
+                posicionInicial = puntero - lexema.Length;
+                posicionFinal = posicionInicial + lexema.Length;
+            }
+           
+            
             componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, posicionFinal, lexema, categoria, tipo);
 
         }
