@@ -20,6 +20,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private CategoriaGramatical categoria = CategoriaGramatical.DEFECTO;
         private string estadoActual = "q0";
         private int posicionInicial = 0;
+        private int posicionFinal = 0;
         private bool continuarAnalisis = false;
         private ComponenteLexico componente = null;
         private TipoComponente tipo = TipoComponente.LITERAL;
@@ -41,6 +42,7 @@ namespace ComiladorTraductor.AnalizadorLexico
                 numeroLineaActual = DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
                 posicionInicial = 0;
+                posicionFinal = 0;
             }
 
         }
@@ -1225,14 +1227,16 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void FormarComponenteLexicoLiteral()
         {
             posicionInicial = puntero - lexema.Length;
-            componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, lexema, categoria, tipo);
+            posicionFinal = posicionInicial + lexema.Length;
+            componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, posicionFinal, lexema, categoria, tipo);
 
         }
 
         private void ReportarErrorLexicoStopper()
         {
             posicionInicial = puntero - lexema.Length;
-            Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, puntero - lexema.Length, lexema, falla, causa, solucion);
+            posicionFinal = posicionInicial + lexema.Length;
+            Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, puntero - lexema.Length, posicionFinal, lexema, falla, causa, solucion);
             ManejadorTodosErrores.ObtenerManejadorDeErrores().ReportarError(error);
         }
     }

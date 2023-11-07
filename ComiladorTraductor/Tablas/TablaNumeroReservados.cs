@@ -19,16 +19,16 @@ namespace ComiladorTraductor.Tablas
 
         private void LlenarNumeros()
         {
-            numeros.Add("0", ComponenteLexico.CrearNumero(0, 0, "0", CategoriaGramatical.EsDiguito0));
-            numeros.Add("1", ComponenteLexico.CrearNumero(0, 0, "1", CategoriaGramatical.EsDiguito1));
-            numeros.Add("2", ComponenteLexico.CrearNumero(0, 0, "2", CategoriaGramatical.EsDiguito2));
-            numeros.Add("3", ComponenteLexico.CrearNumero(0, 0, "3", CategoriaGramatical.EsDiguito3));
-            numeros.Add("4", ComponenteLexico.CrearNumero(0, 0, "4", CategoriaGramatical.EsDiguito4));
-            numeros.Add("5", ComponenteLexico.CrearNumero(0, 0, "5", CategoriaGramatical.EsDiguito5));
-            numeros.Add("6", ComponenteLexico.CrearNumero(0, 0, "6", CategoriaGramatical.EsDiguito6));
-            numeros.Add("7", ComponenteLexico.CrearNumero(0, 0, "7", CategoriaGramatical.EsDiguito7));
-            numeros.Add("8", ComponenteLexico.CrearNumero(0, 0, "8", CategoriaGramatical.EsDiguito8));
-            numeros.Add("9", ComponenteLexico.CrearNumero(0, 0, "9", CategoriaGramatical.EsDiguito9));
+            numeros.Add("0", ComponenteLexico.CrearNumero(0, 0, 0, "0", CategoriaGramatical.EsDiguito0));
+            numeros.Add("1", ComponenteLexico.CrearNumero(0, 0, 0, "1", CategoriaGramatical.EsDiguito1));
+            numeros.Add("2", ComponenteLexico.CrearNumero(0, 0, 0, "2", CategoriaGramatical.EsDiguito2));
+            numeros.Add("3", ComponenteLexico.CrearNumero(0, 0, 0, "3", CategoriaGramatical.EsDiguito3));
+            numeros.Add("4", ComponenteLexico.CrearNumero(0, 0, 0, "4", CategoriaGramatical.EsDiguito4));
+            numeros.Add("5", ComponenteLexico.CrearNumero(0, 0, 0, "5", CategoriaGramatical.EsDiguito5));
+            numeros.Add("6", ComponenteLexico.CrearNumero(0, 0, 0, "6", CategoriaGramatical.EsDiguito6));
+            numeros.Add("7", ComponenteLexico.CrearNumero(0, 0, 0, "7", CategoriaGramatical.EsDiguito7));
+            numeros.Add("8", ComponenteLexico.CrearNumero(0, 0, 0, "8", CategoriaGramatical.EsDiguito8));
+            numeros.Add("9", ComponenteLexico.CrearNumero(0, 0, 0, "9", CategoriaGramatical.EsDiguito9));
 
         }
 

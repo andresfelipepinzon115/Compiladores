@@ -20,7 +20,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private string lexema = "";
         private string estadoActual = "q0";
         private int posicionInicial = 0;
-        //private int posicionFinal = 0;
+        private int posicionFinal = 0;
         private bool continuarAnalisis = false;
         public string test = "";
         private CategoriaGramatical categoria = CategoriaGramatical.DEFECTO;
@@ -46,6 +46,8 @@ namespace ComiladorTraductor.AnalizadorLexico
                 numeroLineaActual = DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
                 posicionInicial = 0;
+                posicionFinal = 0;
+
                 DevorarEspaciosBlanco();
 
             }
@@ -94,6 +96,7 @@ namespace ComiladorTraductor.AnalizadorLexico
             lexema = "";
             categoria = CategoriaGramatical.DEFECTO;
             posicionInicial = 0;
+            posicionFinal = 0;
             continuarAnalisis = true;
             componente = null;
             falla = "";
@@ -2687,7 +2690,8 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void FormarComponenteLexicoLiteral()
         {
             posicionInicial = puntero - lexema.Length;
-            componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, lexema, categoria, tipo);
+            posicionFinal = posicionInicial + lexema.Length;
+            componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, posicionFinal, lexema, categoria, tipo);
             
 
         }
@@ -2695,7 +2699,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ReportarErrorLexicoStopper()
         {
           
-            Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, puntero - lexema.Length, lexema, falla, causa, solucion);
+            Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, puntero - lexema.Length, posicionFinal, lexema, falla, causa, solucion);
             ManejadorTodosErrores.ObtenerManejadorDeErrores().ReportarError(error);
         }
         private void DevorarEspaciosBlanco()

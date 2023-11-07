@@ -32,38 +32,38 @@ namespace ComiladorTraductor.AnalizadorLexico
         public CategoriaGramatical Categoria { get => categoria; set => categoria = value; }
         public TipoComponente Tipo { get => tipo; set => tipo = value; }
 
-        public static ComponenteLexico Crear(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria, TipoComponente tipo)
+        public static ComponenteLexico Crear(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, CategoriaGramatical categoria, TipoComponente tipo)
         {
             switch (tipo)
             {
                 case TipoComponente.LITERAL:
-                    return CrearLiteral(numeroLinea, posicionInicial, lexema, categoria);
+                    return CrearLiteral(numeroLinea, posicionInicial, posicionFinal, lexema, categoria);
                 case TipoComponente.NUMERO:
-                    return CrearLiteral(numeroLinea, posicionInicial, lexema, categoria);
+                    return CrearLiteral(numeroLinea, posicionInicial, posicionFinal, lexema, categoria);
                 case TipoComponente.SIMBOLO:
-                    return CrearSimbolo(numeroLinea, posicionInicial, lexema, categoria);
+                    return CrearSimbolo(numeroLinea, posicionInicial, posicionFinal, lexema, categoria);
                 case TipoComponente.DUMMY:
-                    return CrearDummy(numeroLinea, posicionInicial, lexema, categoria);
+                    return CrearDummy(numeroLinea, posicionInicial, posicionFinal, lexema, categoria);
                 default:
                     throw new Exception("Tipo de componente Inválido");
             }
         }
 
-        public static ComponenteLexico CrearSimbolo(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        public static ComponenteLexico CrearSimbolo(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, CategoriaGramatical categoria)
         {
-            return new ComponenteLexico(numeroLinea, posicionInicial, lexema.Length, lexema, categoria, TipoComponente.SIMBOLO);
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionFinal, lexema, categoria, TipoComponente.SIMBOLO);
         }
-        public static ComponenteLexico CrearLiteral(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        public static ComponenteLexico CrearLiteral(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, CategoriaGramatical categoria)
         {
-            return new ComponenteLexico(numeroLinea, posicionInicial, lexema.Length, lexema, categoria, TipoComponente.LITERAL);
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionFinal, lexema, categoria, TipoComponente.LITERAL);
         }
-        public static ComponenteLexico CrearDummy(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        public static ComponenteLexico CrearDummy(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, CategoriaGramatical categoria)
         {
-            return new ComponenteLexico(numeroLinea, posicionInicial, lexema.Length, lexema, categoria, TipoComponente.DUMMY);
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionFinal, lexema, categoria, TipoComponente.DUMMY);
         }
-        public static ComponenteLexico CrearNumero(int numeroLinea, int posicionInicial, string lexema, CategoriaGramatical categoria)
+        public static ComponenteLexico CrearNumero(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, CategoriaGramatical categoria)
         {
-            return new ComponenteLexico(numeroLinea, posicionInicial, lexema.Length, lexema, categoria, TipoComponente.NUMERO);
+            return new ComponenteLexico(numeroLinea, posicionInicial, posicionFinal, lexema, categoria, TipoComponente.NUMERO);
         }
         public override string ToString()
         {
@@ -73,7 +73,7 @@ namespace ComiladorTraductor.AnalizadorLexico
             sb.Append("Categoria: ").Append(Categoria).Append("\r\n");
             sb.Append("Lexema: ").Append(Lexema).Append("\r\n");
             sb.Append("Número de línea: ").Append(NumeroLinea).Append("\r\n");
-            sb.Append("Posicion Inicia: ").Append(PosicionInicial).Append("\r\n");
+            sb.Append("Posicion Inicial:").Append(PosicionInicial).Append("\r\n");
             sb.Append("Posicion Final: ").Append(PosicionFinal).Append("\r\n");
             sb.Append("-------------------------------FIN-------------------------------");
             return sb.ToString();

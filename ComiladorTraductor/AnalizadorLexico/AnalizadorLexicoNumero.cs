@@ -20,6 +20,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private CategoriaGramatical categoria = CategoriaGramatical.DEFECTO;
         private string estadoActual = "q0";
         private int posicionInicial = 0;
+        private int posicionFinal = 0;
         private bool continuarAnalisis = false;
         private ComponenteLexico componente = null;
         private TipoComponente tipo = TipoComponente.LITERAL;
@@ -41,6 +42,7 @@ namespace ComiladorTraductor.AnalizadorLexico
                 numeroLineaActual = DataCache.ObtenerLinea(numeroLineaActual).NumeroLinea;
                 puntero = 1;
                 posicionInicial = 0;
+                posicionFinal = 0;
                 DevorarEspaciosBlanco();
 
             }
@@ -82,6 +84,7 @@ namespace ComiladorTraductor.AnalizadorLexico
             categoria = CategoriaGramatical.DEFECTO;
             tipo = TipoComponente.LITERAL;
             posicionInicial = 0;
+            posicionFinal = 0;
             continuarAnalisis = true;
             componente = null;
             falla = "";
@@ -531,6 +534,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado1()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -632,6 +636,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado11()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -723,6 +728,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado21()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -815,6 +821,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado31()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -907,6 +914,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado41()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -999,6 +1007,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado51()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -1090,6 +1099,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado61()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -1182,6 +1192,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado71()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -1273,6 +1284,7 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void ProcesarEstado81()
         {
             posicionInicial = puntero;
+            posicionFinal = puntero + lexema.Length;
             Concatenar();
             LeerSiguienteCaracter();
             if (UtilTexto.EsDigito1(caracterActual))
@@ -1396,14 +1408,16 @@ namespace ComiladorTraductor.AnalizadorLexico
         private void FormarComponenteLexicoLiteral()
         {
             posicionInicial = puntero - lexema.Length;
-            componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, lexema, categoria, tipo);
+            posicionFinal = posicionInicial + lexema.Length;
+            componente = ComponenteLexico.Crear(numeroLineaActual, posicionInicial, posicionFinal, lexema, categoria, tipo);
 
         }
 
         private void ReportarErrorLexicoStopper()
         {
             posicionInicial = puntero - lexema.Length;
-            Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, posicionInicial, lexema, falla, causa, solucion);
+            posicionFinal = posicionInicial + lexema.Length;
+            Error error = Error.CrearErrorLexicoStopper(numeroLineaActual, posicionInicial, posicionFinal, lexema, falla, causa, solucion);
             ManejadorTodosErrores.ObtenerManejadorDeErrores().ReportarError(error);
         }
         private void DevorarEspaciosBlanco()

@@ -41,22 +41,22 @@ namespace ComiladorTraductor.ManejadorErrores
         public TipoError Tipo { get => tipo; set => tipo = value; }
         public CategoriaError Categoria { get => categoria; set => categoria = value; }
 
-        public static Error CrearErrorLexicoRecuperable(int numeroLinea, int posicionInicial, string lexema, string falla, string causa, string solucion)
+        public static Error CrearErrorLexicoRecuperable(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, string falla, string causa, string solucion)
         {
 
-            return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, causa, solucion, TipoError.LEXICO, CategoriaError.RECUPERABLE);
+            return new Error(numeroLinea, posicionInicial, posicionFinal, lexema, falla, causa, solucion, TipoError.LEXICO, CategoriaError.RECUPERABLE);
 
         }
-        public static Error CrearErrorLexicoStopper(int numeroLinea, int posicionInicial, string lexema, string falla, string causa, string solucion)
+        public static Error CrearErrorLexicoStopper(int numeroLinea, int posicionInicial,int posicionFinal, string lexema, string falla, string causa, string solucion)
         {
 
-            return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, causa, solucion, TipoError.LEXICO, CategoriaError.STOPPER);
+            return new Error(numeroLinea, posicionInicial, posicionFinal, lexema, falla, causa, solucion, TipoError.LEXICO, CategoriaError.STOPPER);
 
         }
-        public static Error CrearErrorSintacticoStopper(int numeroLinea, int posicionInicial, string lexema, string falla, string causa, string solucion)
+        public static Error CrearErrorSintacticoStopper(int numeroLinea, int posicionInicial, int posicionFinal, string lexema, string falla, string causa, string solucion)
         {
 
-            return new Error(numeroLinea, posicionInicial, posicionInicial + lexema.Length, lexema, falla, causa, solucion, TipoError.SINTACTICO, CategoriaError.STOPPER);
+            return new Error(numeroLinea, posicionInicial, posicionFinal, lexema, falla, causa, solucion, TipoError.SINTACTICO, CategoriaError.STOPPER);
 
         }
         public override string ToString()
