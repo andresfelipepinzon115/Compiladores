@@ -1032,31 +1032,50 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q12";
-                
-            }
-            
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q102";
             }
-
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q102";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q102";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q12";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
         }
         public void ProcesarEstado12()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q13";
-                
-            }
-           
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q103";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q103";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q103";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q13";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1064,15 +1083,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q14";
-                
-            }
-            
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q104";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q104";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q104";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q14";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1080,15 +1109,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q15";
-                
-            }
-           
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q105";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q105";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q105";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q15";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1096,15 +1135,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q16";
-                
-            }
-            
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q106";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q106";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q106";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q16";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1112,15 +1161,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q17";
-                
-            }
-          
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q107";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q107";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q107";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q17";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1128,15 +1187,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q18";
-                
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q108";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q108";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q108";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q18";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1144,16 +1213,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q19";
-                
-
-            }
-            else 
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q109";
-
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q109";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q109";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q19";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1181,15 +1259,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q22";
-                
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q111";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q111";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q111";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q22";
+            }
+            else
+            {
+                estadoActual = "q182";
             }
 
         }
@@ -1197,14 +1285,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q112";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q112";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q112";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q23";
             }
-
             else
             {
-                estadoActual = "q112";
+                estadoActual = "q182";
             }
 
         }
@@ -1212,89 +1311,160 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q24";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q113";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q113";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q113";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q24";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado24()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q25";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q114";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q114";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q114";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q25";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado25()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q26";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q115";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q115";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q115";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q26";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado26()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q27";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q116";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q116";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q116";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q27";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado27()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q28";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q117";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q117";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q117";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q28";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado28()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q118";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q118";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q118";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q29";
             }
-
             else
             {
-                estadoActual = "q118";
+                estadoActual = "q182";
             }
 
         }
@@ -1321,59 +1491,104 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q32";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q120";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q120";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q120";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q32";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado32()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q33";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q121";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q121";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q121";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q33";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado33()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q34";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q122";
             }
-
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q122";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q122";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q34";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
         }
         public void ProcesarEstado34()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q123";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q123";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q123";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q35";
             }
-
             else
             {
-                estadoActual = "q123";
+                estadoActual = "q182";
             }
 
         }
@@ -1381,14 +1596,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q124";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q124";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q124";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q36";
             }
-
             else
             {
-                estadoActual = "q124";
+                estadoActual = "q182";
             }
 
         }
@@ -1396,14 +1622,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q125";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q125";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q125";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q37";
             }
-
             else
             {
-                estadoActual = "q125";
+                estadoActual = "q182";
             }
 
         }
@@ -1411,14 +1648,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q126";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q126";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q126";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q38";
             }
-
             else
             {
-                estadoActual = "q126";
+                estadoActual = "q182";
             }
 
         }
@@ -1426,14 +1674,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q127";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q127";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q127";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q39";
             }
-
             else
             {
-                estadoActual = "q127";
+                estadoActual = "q182";
             }
 
         }
@@ -1460,14 +1719,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q129";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q129";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q129";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q42";
             }
-
             else
             {
-                estadoActual = "q129";
+                estadoActual = "q182";
             }
 
         }
@@ -1475,14 +1745,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q130";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q130";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q130";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q43";
             }
-
             else
             {
-                estadoActual = "q130";
+                estadoActual = "q182";
             }
 
         }
@@ -1490,14 +1771,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q131";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q131";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q131";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q44";
             }
-
             else
             {
-                estadoActual = "q131";
+                estadoActual = "q182";
             }
 
         }
@@ -1505,14 +1797,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q132";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q132";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q132";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q45";
             }
-
             else
             {
-                estadoActual = "q132";
+                estadoActual = "q182";
             }
 
         }
@@ -1520,14 +1823,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q133";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q133";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q133";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q46";
             }
-
             else
             {
-                estadoActual = "q133";
+                estadoActual = "q182";
             }
 
         }
@@ -1535,14 +1849,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q134";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q134";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q134";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q47";
             }
-
             else
             {
-                estadoActual = "q134";
+                estadoActual = "q182";
             }
 
         }
@@ -1550,14 +1875,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q135";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q135";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q135";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q48";
             }
-
             else
             {
-                estadoActual = "q135";
+                estadoActual = "q182";
             }
 
         }
@@ -1565,14 +1901,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q136";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q136";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q136";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q49";
             }
-
             else
             {
-                estadoActual = "q136";
+                estadoActual = "q182";
             }
 
         }
@@ -1599,14 +1946,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q138";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q138";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q138";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q52";
             }
-
             else
             {
-                estadoActual = "q138";
+                estadoActual = "q182";
             }
 
         }
@@ -1614,14 +1972,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q139";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q139";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q139";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q53";
             }
-
             else
             {
-                estadoActual = "q139";
+                estadoActual = "q182";
             }
 
         }
@@ -1629,14 +1998,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q140";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q140";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q140";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q54";
             }
-
             else
             {
-                estadoActual = "q140";
+                estadoActual = "q182";
             }
 
         }
@@ -1644,14 +2024,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q141";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q141";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q141";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q55";
             }
-
             else
             {
-                estadoActual = "q141";
+                estadoActual = "q182";
             }
 
         }
@@ -1659,14 +2050,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q142";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q142";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q142";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q56";
             }
-
             else
             {
-                estadoActual = "q142";
+                estadoActual = "q182";
             }
 
         }
@@ -1674,14 +2076,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q143";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q143";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q143";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q57";
             }
-
             else
             {
-                estadoActual = "q143";
+                estadoActual = "q182";
             }
 
         }
@@ -1689,14 +2102,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q144";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q144";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q144";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q58";
             }
-
             else
             {
-                estadoActual = "q144";
+                estadoActual = "q182";
             }
 
         }
@@ -1704,14 +2128,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q145";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q145";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q145";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q59";
             }
-
             else
             {
-                estadoActual = "q145";
+                estadoActual = "q182";
             }
 
         }
@@ -1738,14 +2173,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q147";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q147";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q147";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q62";
             }
-
             else
             {
-                estadoActual = "q147";
+                estadoActual = "q182";
             }
 
         }
@@ -1753,14 +2199,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q148";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q148";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q148";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q63";
             }
-
             else
             {
-                estadoActual = "q148";
+                estadoActual = "q182";
             }
 
         }
@@ -1768,29 +2225,50 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q64";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q149";
             }
-
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q149";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q149";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q64";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
         }
         public void ProcesarEstado64()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q150";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q150";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q150";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q65";
             }
-
             else
             {
-                estadoActual = "q150";
+                estadoActual = "q182";
             }
 
         }
@@ -1798,14 +2276,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q151";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q151";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q151";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q66";
             }
-
             else
             {
-                estadoActual = "q151";
+                estadoActual = "q182";
             }
 
         }
@@ -1813,14 +2302,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q152";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q152";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q152";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q67";
             }
-
             else
             {
-                estadoActual = "q152";
+                estadoActual = "q182";
             }
 
         }
@@ -1828,14 +2328,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q153";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q153";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q153";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q68";
             }
-
             else
             {
-                estadoActual = "q153";
+                estadoActual = "q182";
             }
 
         }
@@ -1843,14 +2354,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q154";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q154";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q154";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q69";
             }
-
             else
             {
-                estadoActual = "q154";
+                estadoActual = "q182";
             }
 
         }
@@ -1877,15 +2399,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q156";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q156";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q156";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q72";
             }
-
-
             else
             {
-                estadoActual = "q156";
+                estadoActual = "q182";
             }
 
         }
@@ -1893,14 +2425,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q157";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q157";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q157";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q73";
             }
-
             else
             {
-                estadoActual = "q157";
+                estadoActual = "q182";
             }
 
         }
@@ -1908,29 +2451,50 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q74";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q158";
             }
-
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q158";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q158";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q74";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
         }
         public void ProcesarEstado74()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q159";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q159";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q159";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q75";
             }
-
             else
             {
-                estadoActual = "q159";
+                estadoActual = "q182";
             }
 
         }
@@ -1938,14 +2502,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q160";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q160";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q160";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q76";
             }
-
             else
             {
-                estadoActual = "q160";
+                estadoActual = "q182";
             }
 
         }
@@ -1953,14 +2528,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q161";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q161";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q161";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q77";
             }
-
             else
             {
-                estadoActual = "q161";
+                estadoActual = "q182";
             }
 
         }
@@ -1968,14 +2554,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q162";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q162";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q162";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q78";
             }
-
             else
             {
-                estadoActual = "q162";
+                estadoActual = "q182";
             }
 
         }
@@ -1983,14 +2580,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q163";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q163";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q163";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q79";
             }
-
             else
             {
-                estadoActual = "q163";
+                estadoActual = "q182";
             }
 
         }
@@ -2019,14 +2627,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q165";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q165";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q165";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q82";
             }
-
             else
             {
-                estadoActual = "q165";
+                estadoActual = "q182";
             }
 
         }
@@ -2034,14 +2653,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q166";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q166";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q166";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q83";
             }
-
             else
             {
-                estadoActual = "q166";
+                estadoActual = "q182";
             }
 
         }
@@ -2049,14 +2679,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q167";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q167";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q167";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q84";
             }
-
             else
             {
-                estadoActual = "q167";
+                estadoActual = "q182";
             }
 
         }
@@ -2064,14 +2705,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q168";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q168";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q168";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q85";
             }
-
             else
             {
-                estadoActual = "q168";
+                estadoActual = "q182";
             }
 
         }
@@ -2079,14 +2731,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q169";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q169";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q169";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q86";
             }
-
             else
             {
-                estadoActual = "q169";
+                estadoActual = "q182";
             }
 
         }
@@ -2094,14 +2757,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q170";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q170";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q170";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q87";
             }
-
             else
             {
-                estadoActual = "q170";
+                estadoActual = "q182";
             }
 
         }
@@ -2109,14 +2783,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q171";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q171";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q171";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q88";
             }
-
             else
             {
-                estadoActual = "q171";
+                estadoActual = "q182";
             }
 
         }
@@ -2124,14 +2809,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q172";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q172";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q172";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q89";
             }
-
             else
             {
-                estadoActual = "q172";
+                estadoActual = "q182";
             }
 
         }
@@ -2159,30 +2855,51 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q174";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q174";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q174";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q92";
             }
-            else 
+            else
             {
-                estadoActual = "q174";
-                
+                estadoActual = "q182";
             }
-            
 
         }
         public void ProcesarEstado92()
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q175";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q175";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q175";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q93";
             }
-           
             else
             {
-                estadoActual = "q175";
+                estadoActual = "q182";
             }
 
         }
@@ -2190,14 +2907,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q176";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q176";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q176";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q94";
             }
-
             else
             {
-                estadoActual = "q176";
+                estadoActual = "q182";
             }
 
         }
@@ -2205,14 +2933,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q177";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q177";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q177";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q95";
             }
-
             else
             {
-                estadoActual = "q177";
+                estadoActual = "q182";
             }
 
         }
@@ -2220,14 +2959,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q178";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q178";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q178";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q96";
             }
-
             else
             {
-                estadoActual = "q178";
+                estadoActual = "q182";
             }
 
         }
@@ -2235,14 +2985,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q179";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q179";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q179";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q97";
             }
-
             else
             {
-                estadoActual = "q179";
+                estadoActual = "q182";
             }
 
         }
@@ -2250,14 +3011,25 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
+            {
+                estadoActual = "q180";
+            }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q180";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q180";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
             {
                 estadoActual = "q98";
             }
-
             else
             {
-                estadoActual = "q180";
+                estadoActual = "q182";
             }
 
         }
@@ -2265,15 +3037,27 @@ namespace ComiladorTraductor.AnalizadorLexico
         {
             Concatenar();
             LeerSiguienteCaracter();
-            if (UtilTexto.EsPunto(caracterActual))
-            {
-                estadoActual = "q99";
-            }
-
-            else
+            if (UtilTexto.EsEspacioEnBlanco(caracterActual))
             {
                 estadoActual = "q181";
             }
+            else if (UtilTexto.EsFinLinea(caracterActual))
+            {
+                estadoActual = "q181";
+            }
+            else if (UtilTexto.EsFinArchivo(caracterActual))
+            {
+                estadoActual = "q181";
+            }
+            else if (UtilTexto.EsPunto(caracterActual))
+            {
+                estadoActual = "q99";
+            }
+            else
+            {
+                estadoActual = "q182";
+            }
+
 
         }
         public void ProcesarEstado99()
