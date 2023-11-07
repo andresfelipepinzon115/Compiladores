@@ -179,7 +179,7 @@ namespace ComiladorTraductor
         {
             tablaMaestra = TablaMaestra.ObtenerTablaMaestra();
             listaRetorno = tablaMaestra.ObtenerTodosSimbolos(TipoComponente.LITERAL);
-            var i = 0;
+            int i = 0;
 
             foreach (var item in listaRetorno)
             {
@@ -189,7 +189,7 @@ namespace ComiladorTraductor
         }
         private void ImprimirErrores()
         {
-            var i = 0;
+            int i = 0;
 
             manejadorErrores = ManejadorTodosErrores.ObtenerManejadorDeErrores();
             listaErrores = manejadorErrores.ObtenerErrores(TipoError.LEXICO);
@@ -202,23 +202,7 @@ namespace ComiladorTraductor
             }
             i = 0;
 
-            listaErrores = manejadorErrores.ObtenerErrores(TipoError.SINTACTICO);
-
-
-            foreach (var item in listaErrores)
-            {
-                dataGridView2.Rows.Add(i, item.NumeroLinea, item.PosicionInicial, item.PosicionFinal, item.Lexema, item.Falla, item.Causa, item.Solucion, item.Tipo, item.Categoria);
-                i++;
-            }
-            i = 0;
-            listaErrores = manejadorErrores.ObtenerErrores(TipoError.SEMANTICO);
-
-
-            foreach (var item in listaErrores)
-            {
-                dataGridView2.Rows.Add(i, item.NumeroLinea, item.PosicionInicial, item.PosicionFinal, item.Lexema, item.Falla, item.Causa, item.Solucion, item.Tipo, item.Categoria);
-                i++;
-            }
+           
         }
         private void ManualInput()
         {

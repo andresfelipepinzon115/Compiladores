@@ -91,9 +91,9 @@ namespace ComiladorTraductor.AnalizadorSintactico
         {
             string traduccion = "";
 
-            int total = principal.Count;
+            int n = principal.Count;
 
-            while (secundario.Count < total)
+            while (secundario.Count < n)
             {
                 secundario.Push(principal.Pop());
             }
@@ -101,48 +101,48 @@ namespace ComiladorTraductor.AnalizadorSintactico
             switch (numeroTraducion)
             {
                 case 0: // Traducción de texto
-                    traduccion = TranslateText(total);
+                    traduccion = TranslateText(n);
                     break;
                 case 1: // Traducción de puntos
-                    traduccion = TranslatePuntos(total);
+                    traduccion = TranslatePuntos(n);
                     break;
                 case 2: // Traducción de números
-                    traduccion = TranslateNumeros(total);
+                    traduccion = TranslateNumeros(n);
                     break;
             }
 
             return traduccion;
         }
 
-        private string TranslateText(int total)
+        private string TranslateText(int n)
         {
             StringBuilder resultBuilder = new StringBuilder();
 
-            for (int i = 0; i < total - 1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
                 CategoriaGramatical categoria = secundario.Pop();
-                resultBuilder.Append(Texto.texto[Convert.ToInt32(categoria)]);
+                resultBuilder.Append(Texto.texto[(int)categoria]);
             }
 
             return resultBuilder.ToString();
         }
 
-        private string TranslatePuntos(int total)
+        private string TranslatePuntos(int n)
         {
             StringBuilder resultBuilder = new StringBuilder();
 
-            for (int i = 0; i < total - 1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
                 CategoriaGramatical categoria = secundario.Pop();
 
                 if (CategoriaGramatical.FIN_LINEA.Equals(i))
                 {
-                    resultBuilder.Append(Puntos.puntos[Convert.ToInt32(categoria)]);
+                    resultBuilder.Append(Puntos.puntos[(int)categoria]);
                     resultBuilder.AppendLine();
                 }
                 else
                 {
-                    resultBuilder.Append(Puntos.puntos[Convert.ToInt32(categoria)]);
+                    resultBuilder.Append(Puntos.puntos[(int)categoria]);
                     resultBuilder.Append("  ");
                 }
             }
@@ -150,22 +150,22 @@ namespace ComiladorTraductor.AnalizadorSintactico
             return resultBuilder.ToString();
         }
 
-        private string TranslateNumeros(int total)
+        private string TranslateNumeros(int n)
         {
             StringBuilder resultBuilder = new StringBuilder();
 
-            for (int i = 0; i < total - 1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
                 CategoriaGramatical categoria = secundario.Pop();
 
                 if (CategoriaGramatical.FIN_LINEA.Equals(i))
                 {
-                    resultBuilder.Append(Numero.numeros[Convert.ToInt32(categoria)]);
+                    resultBuilder.Append(Numero.numeros[(int)categoria]);
                     resultBuilder.AppendLine();
                 }
                 else
                 {
-                    resultBuilder.Append(Numero.numeros[Convert.ToInt32(categoria)]);
+                    resultBuilder.Append(Numero.numeros[(int)categoria]);
                     resultBuilder.Append(" ");
                 }
             }
